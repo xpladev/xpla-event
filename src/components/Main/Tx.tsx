@@ -74,12 +74,12 @@ const ShowSecretCode = ({ address }: { address: string }) => {
           You need to make at least <br />1 tx to get Secret Code!
         </span>
       ) : (
-        <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[10px] leading-[12px] text-[#0080FF]">
+        <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[12px] leading-[12px] text-[#0080FF]">
           {process.env.REACT_APP_TX}
           <ContentCopyIcon
             onClick={() => copyToClipboard(process.env.REACT_APP_TX)}
             className="absolute md:top-[5px] top-[-6px] right-[0px] w-[10px] h-[10px] scale-y-[-1] hover:opacity-80 hover:cursor-pointer"
-            style={{ color: "#636161", width : isDesktop ? 40 : 10 }}
+            style={{ color: "#636161", width : isDesktop ? 40 : 12 }}
           />
         </span>
       )}
