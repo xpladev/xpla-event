@@ -7,8 +7,40 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="w-[1180px] flex justify-start font-sora-700 text-gradient md:text-[30px] text-[16px]">
+        <div className="w-[1180px] flex justify-between font-sora-700 text-gradient md:text-[30px] text-[16px]">
           <span>XPLA EVENT NOW LiVE</span>
+          <div className="flex justify-center items-center md:gap-[15px]">
+            <img
+              src="/img/xlogo.svg"
+              width="30px"
+              height="30px"
+              alt="xlogo"
+              onClick={() => {
+                window.open("https://twitter.com/XPLA_Official");
+              }}
+              className="md:mr-[0px] mr-[9px] md:w-[30px] w-[18px] md:h-[30px] h-[18px] md:hover:cursor-pointer md:hover:opacity-80"
+            />
+            <img
+              src="/img/mediumlogo.svg"
+              width="30px"
+              height="30px"
+              alt="mediumlogo"
+              onClick={() => {
+                window.open("https://medium.com/xpla-ecosystem");
+              }}
+              className="md:mr-[0px] mr-[9px] md:w-[30px] w-[18px] md:h-[30px] h-[18px] md:hover:cursor-pointer md:hover:opacity-80"
+            />
+            <img
+              src="/img/telelogo.svg"
+              width="30px"
+              height="30px"
+              alt="telelogo"
+              onClick={() => {
+                window.open("https://t.me/Official_XPLA");
+              }}
+              className="md:w-[30px] w-[18px] md:h-[30px] h-[18px] md:hover:cursor-pointer md:hover:opacity-80"
+            />
+          </div>
         </div>
       </header>
       <div className="bg-black bg-star md:h-[620px] h-[330px] flex justify-center items-center md:px-[10px]">
