@@ -6,6 +6,7 @@ import { copyToClipboard } from "./Balance";
 
 const Tx = () => {
   const { status, wallets } = useWallet();
+  const isDesktop = useMediaQuery("(min-width:768px)");
 
   return (
     <div className="min-[1180px]:w-full max-[768px]:w-full min-[769px]:w-[947px] main-shadow bg-white md:p-[30px] p-[8px] flex justify-center items-center rounded-full">
@@ -34,8 +35,8 @@ const Tx = () => {
           {wallets.length > 0 ? (
             <ShowSecretCode address={wallets[0].xplaAddress} />
           ) : (
-            <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[10px] leading-[12px] text-[#0080FF]">
-              You need to make at least <br />1 tx to get Secret Code!
+            <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[12px] leading-[12px] text-[#0080FF]">
+              You need to make at least <br />1 tx{!isDesktop && <br/>} to get Secret Code!
             </span>
           )}
           {status !== WalletStatus.WALLET_CONNECTED && (
@@ -70,8 +71,8 @@ const ShowSecretCode = ({ address }: { address: string }) => {
       {isLoading ? (
         <CircularProgress style={{ color: "white" }} size={70} />
       ) : (data || 0) < 1 ? (
-        <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[10px] leading-[12px] text-[#0080FF]">
-          You need to make at least <br />1 tx to get Secret Code!
+        <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[12px] leading-[12px] text-[#0080FF]">
+          You need to make at least <br />1 tx{!isDesktop && <br/>} to get Secret Code!
         </span>
       ) : (
         <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[14px] leading-[12px] text-[#0080FF]">

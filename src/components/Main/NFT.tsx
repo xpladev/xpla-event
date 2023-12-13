@@ -6,6 +6,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 const NFT = () => {
   const { status, wallets } = useWallet();
+  const isDesktop = useMediaQuery("(min-width:768px)");
 
   return (
     <div className="min-[1180px]:w-full max-[768px]:w-full main-shadow bg-white md:p-[30px] p-[8px] flex justify-center items-center rounded-full">
@@ -34,8 +35,8 @@ const NFT = () => {
           {wallets.length > 0 ? (
             <ShowSecretCode address={wallets[0].xplaAddress} />
           ) : (
-            <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[10px] leading-[12px] text-[#0080FF]">
-              You need at least <br />1 NFT to get Secret Code!
+            <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[12px] leading-[12px] text-[#0080FF]">
+              You need at least <br />1 NFT{!isDesktop && <br/>} to get Secret Code!
             </span>
           )}
           {status !== WalletStatus.WALLET_CONNECTED && (
@@ -70,8 +71,8 @@ const ShowSecretCode = ({ address }: { address: string }) => {
       {isLoading ? (
         <CircularProgress style={{ color: "white" }} size={70} />
       ) : (data || 0) < 1 ? (
-        <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[10px] leading-[12px] text-[#0080FF]">
-          You need at least <br />1 NFT to get Secret Code!
+        <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[12px] leading-[12px] text-[#0080FF]">
+          You need at least <br />1 NFT{!isDesktop && <br/>} to get Secret Code!
         </span>
       ) : (
         <span className="w-full relative font-pretendard md:text-[32px] md:leading-[38px] text-[14px] leading-[12px] text-[#0080FF]">
