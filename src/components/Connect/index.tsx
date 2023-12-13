@@ -23,7 +23,14 @@ export default function Connect() {
 
       const selected = await selectConnection(
         isDesktop
-          ? available
+          ? available.filter((connection) => {
+            if (connection.name === "XPLA GAMES Wallet") {
+              connection.icon = "https://xpla.events/img/xplagames.svg";
+              return connection;
+            } else {
+              return connection;
+            }
+          })
           : [
               {
                 type: "WALLETCONNECT",
@@ -34,7 +41,7 @@ export default function Connect() {
               {
                 type: "WALLETCONNECT",
                 name: "XPLA GAMES Wallet",
-                icon: "https://assets.xpla.io/icon/extension/icon-c2xvault.png",
+                icon: "https://xpla.events/img/xplagames.svg",
                 identifier: "xplagames",
               } as Connection,
             ]
