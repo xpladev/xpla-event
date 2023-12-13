@@ -12,7 +12,7 @@ const Main = () => {
         <Stake />
         <Tx />
       </div>
-      <div className="md:max-w-[937px] max-w-[254px] text-[#0080FF] md:mb-[70px] mb-[30px] font-pretendard md:text-[20px] md:leading-[24px] text-[9px] leading-[11px] md:w-full text-center">
+      <div className="md:max-w-[937px] max-w-[354px] text-[#0080FF] md:mb-[70px] mb-[30px] font-pretendard md:text-[20px] md:leading-[24px] text-[12px] leading-[11px] md:w-full text-center">
       💡 If the information displayed on your dashboard is inaccurate, please
         refresh your browser to update it.
       </div>
