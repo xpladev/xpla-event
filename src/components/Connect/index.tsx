@@ -53,6 +53,11 @@ export default function Connect() {
             className="flex md:min-w-[327px] w-full md:leading-[38px] leading-[25px] z-10 items-center justify-center gap-[10px] px-[45px] py-[10px] rounded-[100px] hover:cursor-pointer bg-gradient-to-r to-[#0080FF] from-[#00AAFF]"
             onClick={() => setShowTooltip(true)}
             onBlur={() => setShowTooltip(false)}
+            onMouseOut={() => {
+              if (window.navigator.platform === 'iPhone') {
+                setShowTooltip(false)
+              }
+            }}
           >
             {showTooltip && (
               <div className="font-pretendard absolute tooltip md:text-[28px] text-[24px] md:leading-[33px] leading-[28px] hover:cursor-default">
