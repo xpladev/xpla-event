@@ -27,7 +27,7 @@ const Stake = () => {
           </span>
         </div>
       </div>
-      <div className="w-full rounded-full flex md:px-[70px] px-[20px] md:py-[64px] py-[15px] flex-col flex-1 md:gap-[27px] gap-[6px] bg-white justify-center items-center">
+      <div className="w-full rounded-full flex md:px-[70px] px-[20px] md:py-[64px] py-[15px] flex-col flex-1 md:gap-[27px] gap-[12px] bg-white justify-center items-center">
         <div className="text-black font-pretendard md:text-[38px] font-semibold md:leading-[45px] text-[14px] leading-[14px]">
           - Secret Code -
         </div>
@@ -94,12 +94,12 @@ const ShowSecretCode = ({ address }: { address: string }) => {
           You need to stake at least <br />1 XPLA to get Secret Code!
         </span>
       ) : (
-        <span className="w-full relative font-pretendard md:text-[32px] md:leading-[38px] text-[12px] leading-[12px] text-[#0080FF]">
+        <span className="w-full relative font-pretendard md:text-[32px] md:leading-[38px] text-[14px] leading-[12px] text-[#0080FF]">
           {process.env.REACT_APP_STAKE}
           <ContentCopyIcon
             onClick={() => copyToClipboard(process.env.REACT_APP_STAKE)}
             className="absolute md:top-[5px] top-[-6px] right-[0px] w-[10px] h-[10px] scale-y-[-1] hover:opacity-80 hover:cursor-pointer"
-            style={{ color: "#636161", width : isDesktop ? 40 : 12 }}
+            style={{ color: "#636161", width : isDesktop ? 40 : 14 }}
           />
         </span>
       )}
