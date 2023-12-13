@@ -1,4 +1,9 @@
-import { Connection, ConnectType, useWallet, WalletStatus } from "@xpla/wallet-provider";
+import {
+  Connection,
+  ConnectType,
+  useWallet,
+  WalletStatus,
+} from "@xpla/wallet-provider";
 import { useEffect, useState } from "react";
 import { CircularProgress, useMediaQuery } from "@mui/material";
 import { selectConnection } from "./ConnectModal";
@@ -15,22 +20,45 @@ export default function Connect() {
 
   const clickConnect = async () => {
     try {
-      const available = availableConnections.filter(
+      const available: Connection[] = availableConnections.filter(
         (connection) =>
           connection.type === ConnectType.EXTENSION ||
           connection.type === ConnectType.WALLETCONNECT
       );
 
+      if (
+        isDesktop &&
+        available.filter((c) => c.name === "XPLA GAMES Wallet").length === 0
+      ) {
+        available.unshift({
+          type: ConnectType.READONLY,
+          name: "XPLA GAMES Wallet",
+          icon: "https://assets.xpla.io/icon/extension/icon.png",
+          identifier: "https://xpla.games/download",
+        } as Connection);
+      }
+      if (
+        isDesktop &&
+        available.filter((c) => c.name === "XPLA Vault Wallet").length === 0
+      ) {
+        available.unshift({
+          type: ConnectType.READONLY,
+          name: "XPLA Vault Wallet",
+          icon: "https://assets.xpla.io/icon/extension/icon.png",
+          identifier: "https://download-vault.xpla.io",
+        } as Connection);
+      }
+
       const selected = await selectConnection(
         isDesktop
           ? available.filter((connection) => {
-            if (connection.name === "XPLA GAMES Wallet") {
-              connection.icon = "https://xpla.events/img/xplagames.svg";
-              return connection;
-            } else {
-              return connection;
-            }
-          })
+              if (connection.name === "XPLA GAMES Wallet") {
+                connection.icon = "https://xpla.events/img/xplagames.svg";
+                return connection;
+              } else {
+                return connection;
+              }
+            })
           : [
               {
                 type: "WALLETCONNECT",
@@ -50,12 +78,17 @@ export default function Connect() {
       if (!selected) {
         return;
       } else {
-        if (isDesktop) {
-          setLoginLoading(true);
-        }
         const type = selected[0];
         const identifier = selected[1] || "";
-        if (identifier === 'xplagames') {
+        if (isDesktop && type === ConnectType.READONLY) {
+          window.open(identifier);
+          return;
+        }
+
+        if (isDesktop && type !== ConnectType.WALLETCONNECT) {
+          setLoginLoading(true);
+        }
+        if (identifier === "xplagames") {
           await connect(type, undefined, true);
         } else {
           await connect(type, identifier);
