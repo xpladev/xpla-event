@@ -1,10 +1,4 @@
-XPLA Initial Setup
 
-Tailwind
+# XPLA Event
 
-XPLA Wallet Provider + XPLA.JS
-
-@tanstack/react-query
-
-mui emoticon + mui module
-
+Get ready to explore the XPLA EVENT! Link your wallet and start the experience now!
