@@ -6,7 +6,7 @@ import Tx from "./Tx";
 const Main = () => {
   return (
     <div className="flex flex-col justify-center bg-white items-center">
-      <div className="md:w-[1180px] md:mt-[80px] mt-[25px] md:mb-[86px] mb-[24px] flex flex-col md:gap-[80px] gap-[20px] justify-center items-center">
+      <div className="md:w-[1180px] md:mt-[80px] mt-[25px] md:mb-[86px] mb-[24px] flex flex-col md:gap-[80px] justify-center items-center">
         <Balance />
         <NFT />
         <Stake />

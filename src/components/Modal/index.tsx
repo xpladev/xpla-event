@@ -123,12 +123,12 @@ const Modal = () => {
           </div>
         </div>
 
-        <div className="md:mb-[31px] mb-[20px] flex items-center justify-center md:gap-[15px] gap-[6px]">
+        <div className="md:mb-[31px] mb-[20px] flex items-center justify-center md:gap-[15px]">
           <div
             onClick={() => {
               setCheck(!check);
             }}
-            className="relative overflow-visible md:w-[30px] w-[14px] md:h-[30px] h-[14px] border-solid border-[1px] border-black bg-white hover:cursor-pointer"
+            className="relative overflow-visible md:w-[30px] w-[14px] md:h-[30px] h-[14px] border-solid border-[1px] border-black bg-white hover:cursor-pointer md:mr-[0px] mr-[6px]"
           >
             {check && (
               <img

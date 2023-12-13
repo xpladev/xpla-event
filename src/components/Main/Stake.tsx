@@ -10,9 +10,9 @@ const Stake = () => {
   const isDesktop = useMediaQuery("(min-width:768px)");
 
   return (
-    <div className="min-[1180px]:w-full max-[768px]:w-full main-shadow bg-white md:p-[30px] p-[8px] flex justify-center items-center rounded-full">
-      <div className="w-full rounded-full flex md:px-[70px] px-[20px] md:py-[64px] py-[15px] flex-col flex-1 md:gap-[27px] gap-[6px] bg-gradient-to-r to-[#0080FF] from-[#00AAFF] justify-center items-start">
-        <div className="text-white font-pretendard md:text-[38px] font-semibold md:leading-[45px] text-[14px] leading-[14px]">
+    <div className="min-[1180px]:w-full max-[768px]:w-full main-shadow bg-white md:p-[30px] p-[8px] flex justify-center items-center rounded-full md:mb-[0px] mb-[20px]">
+      <div className="w-full rounded-full flex md:px-[70px] px-[20px] md:py-[64px] py-[15px] flex-col flex-1 md:gap-[27px] bg-gradient-to-r to-[#0080FF] from-[#00AAFF] justify-center items-start">
+        <div className="text-white font-pretendard md:text-[38px] font-semibold md:leading-[45px] text-[14px] leading-[14px] md:mb-[0px] mb-[6px]">
           Staked XPLA
         </div>
         <div className="flex justify-end items-end w-full">
@@ -28,8 +28,8 @@ const Stake = () => {
           </span>
         </div>
       </div>
-      <div className="w-full rounded-full flex md:px-[70px] px-[20px] md:py-[64px] py-[15px] flex-col flex-1 md:gap-[27px] gap-[12px] bg-white justify-center items-center">
-        <div className="text-black font-pretendard md:text-[38px] font-semibold md:leading-[45px] text-[14px] leading-[14px]">
+      <div className="w-full rounded-full flex md:px-[70px] px-[20px] md:py-[64px] py-[15px] flex-col flex-1 md:gap-[27px] bg-white justify-center items-center">
+        <div className="text-black font-pretendard md:text-[38px] font-semibold md:leading-[45px] text-[14px] leading-[14px] md:mb-[0px] mb-[12px]">
           - Secret Code -
         </div>
         <div className="flex justify-center items-center w-full relative">
