@@ -28,26 +28,26 @@ export default function Connect() {
 
       if (
         isDesktop &&
-        available.filter((c) => c.name === "XPLA GAMES Wallet").length === 0
-      ) {
-        available.unshift({
-          type: ConnectType.READONLY,
-          name: "XPLA GAMES Wallet",
-          icon: "https://assets.xpla.io/icon/extension/icon.png",
-          identifier: "https://xpla.games/download",
-        } as Connection);
-      }
-      if (
-        isDesktop &&
         available.filter((c) => c.name === "XPLA Vault Wallet").length === 0
-      ) {
-        available.unshift({
-          type: ConnectType.READONLY,
-          name: "XPLA Vault Wallet",
-          icon: "https://assets.xpla.io/icon/extension/icon.png",
-          identifier: "https://download-vault.xpla.io",
-        } as Connection);
-      }
+        ) {
+          available.unshift({
+            type: ConnectType.READONLY,
+            name: "XPLA Vault Wallet",
+            icon: "https://assets.xpla.io/icon/extension/icon.png",
+            identifier: "https://download-vault.xpla.io",
+          } as Connection);
+        }
+        if (
+          isDesktop &&
+          available.filter((c) => c.name === "XPLA GAMES Wallet").length === 0
+        ) {
+          available.splice(1, 0, {
+            type: ConnectType.READONLY,
+            name: "XPLA GAMES Wallet",
+            icon: "https://assets.xpla.io/icon/extension/icon.png",
+            identifier: "https://xpla.games/download",
+          } as Connection);
+        }
 
       const selected = await selectConnection(
         isDesktop
