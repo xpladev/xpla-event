@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/xpla-event/static/css/main.e1bc6b33.css",
-    "main.js": "/xpla-event/static/js/main.78b408b1.js",
+    "main.js": "/xpla-event/static/js/main.da8235d6.js",
     "static/js/787.369e33e3.chunk.js": "/xpla-event/static/js/787.369e33e3.chunk.js",
     "static/media/star.svg": "/xpla-event/static/media/star.f93199221f07ad74dbef.svg",
     "index.html": "/xpla-event/index.html",
     "main.e1bc6b33.css.map": "/xpla-event/static/css/main.e1bc6b33.css.map",
-    "main.78b408b1.js.map": "/xpla-event/static/js/main.78b408b1.js.map",
+    "main.da8235d6.js.map": "/xpla-event/static/js/main.da8235d6.js.map",
     "787.369e33e3.chunk.js.map": "/xpla-event/static/js/787.369e33e3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e1bc6b33.css",
-    "static/js/main.78b408b1.js"
+    "static/js/main.da8235d6.js"
   ]
 }
