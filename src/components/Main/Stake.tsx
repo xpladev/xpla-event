@@ -37,11 +37,11 @@ const Stake = () => {
             <ShowSecretCode address={wallets[0].xplaAddress} />
           ) : (
             <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[12px] leading-[12px] text-[#0080FF]">
-              You need to stake at least <br />1 XPLA{!isDesktop && <br/>} to get Secret Code!
+              You need to stake{!isDesktop && <br/>} at least{isDesktop && <br/>} 1 XPLA{!isDesktop && <br/>} to get Secret Code!
             </span>
           )}
           {status !== WalletStatus.WALLET_CONNECTED && (
-            <div className="absolute blur-text h-full w-full" />
+            <div className="absolute blur-text h-[calc(100%+2px)] w-full" />
           )}
         </div>
       </div>
@@ -92,7 +92,7 @@ const ShowSecretCode = ({ address }: { address: string }) => {
         <CircularProgress style={{ color: "white" }} size={70} />
       ) : (Number(onlyInt(delegationsAllXPLA.toString())) || 0) < 1 ? (
         <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[12px] leading-[12px] text-[#0080FF]">
-          You need to stake at least <br />1 XPLA{!isDesktop && <br/>} to get Secret Code!
+          You need to stake{!isDesktop && <br/>} at least{isDesktop && <br/>} 1 XPLA{!isDesktop && <br/>} to get Secret Code!
         </span>
       ) : (
         <span className="w-full relative font-pretendard md:text-[32px] md:leading-[38px] text-[14px] leading-[12px] text-[#0080FF]">
