@@ -18,7 +18,7 @@ function App() {
               onClick={() => {
                 window.open("https://twitter.com/XPLA_Official");
               }}
-              className="md:mr-[0px] mr-[9px] md:w-[30px] w-[18px] md:h-[30px] h-[18px] md:hover:cursor-pointer md:hover:opacity-80"
+              className="md:mr-[0px] mr-[12px] md:w-[30px] w-[22px] md:h-[30px] h-[22px] md:hover:cursor-pointer md:hover:opacity-80"
             />
             <img
               src="/img/mediumlogo.svg"
@@ -28,7 +28,7 @@ function App() {
               onClick={() => {
                 window.open("https://medium.com/xpla-ecosystem");
               }}
-              className="md:mr-[0px] mr-[9px] md:w-[30px] w-[18px] md:h-[30px] h-[18px] md:hover:cursor-pointer md:hover:opacity-80"
+              className="md:mr-[0px] mr-[12px] md:w-[30px] w-[22px] md:h-[30px] h-[22px] md:hover:cursor-pointer md:hover:opacity-80"
             />
             <img
               src="/img/telelogo.svg"
