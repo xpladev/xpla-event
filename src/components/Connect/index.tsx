@@ -142,6 +142,8 @@ export default function Connect() {
                 onClick={() => {
                   setLoginLoading(false);
                   disconnect();
+                  localStorage.removeItem('modal');
+                  window.location.reload();
                 }}
               >
                 Disconnect Wallet
