@@ -89,7 +89,7 @@ const ShowSecretCode = ({ address }: { address: string }) => {
 };
 
 export const onlyInt = (num: string) => {
-  return new BigNumber(num).dividedBy(10 ** 18).toFixed(0);
+  return new BigNumber(num).dividedBy(10 ** 18).toFixed(0, 1);
 };
 
 export async function copyToClipboard(text?: string | number) {
