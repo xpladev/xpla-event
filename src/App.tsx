@@ -38,7 +38,7 @@ function App() {
               onClick={() => {
                 window.open("https://t.me/Official_XPLA");
               }}
-              className="md:w-[30px] w-[18px] md:h-[30px] h-[18px] md:hover:cursor-pointer md:hover:opacity-80"
+              className="md:w-[30px] w-[22px] md:h-[30px] h-[22px] md:hover:cursor-pointer md:hover:opacity-80"
             />
           </div>
         </div>
