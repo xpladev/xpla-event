@@ -94,7 +94,7 @@ const ShowSecretCode = ({ address }: { address: string }) => {
       ) : (
         <span className="w-full relative font-pretendard md:text-[32px] md:leading-[38px] text-[14px] leading-[12px] text-[#0080FF]">
           {process.env.REACT_APP_BALANCE}
-          <div className="absolute md:top-[0px] top-[-6px] right-[0px] ">
+          <div className="absolute md:top-[0px] top-[-6px] right-[0px] md:w-[60px]  w-[44px] flex justify-end">
             <div className="releative">
               <ContentCopyIcon
                 onClick={() =>
@@ -106,8 +106,11 @@ const ShowSecretCode = ({ address }: { address: string }) => {
               {isCopy && (
                 <img
                   src="/img/copy.svg"
+                  alt="copied"
+                  width="44px"
+                  height="35px"
                   className={clsx(
-                    "absolute md:left-[3px] left-[2px] md:bottom-[37px] bottom-[20px] w-[60px] ",
+                    "absolute md:left-[16px] left-[20px] md:bottom-[37px] bottom-[20px] md:w-[60px] md:h-[50px] w-[44px] h-[35px] ",
                     !copyAnimation && "fadeOut"
                   )}
                 />
