@@ -4,7 +4,9 @@ import { useState } from "react";
 
 const Modal = () => {
   const localModal = localStorage.getItem("modal");
-  const [modalOpen, setModalOpen] = useState<boolean>(localModal ? false : true);
+  const [modalOpen, setModalOpen] = useState<boolean>(
+    localModal ? false : true
+  );
   const [check, setCheck] = useState<boolean>(false);
   return (
     <MuiModal open={modalOpen}>
@@ -29,37 +31,50 @@ const Modal = () => {
         <div className="md:mb-[22px] mb-[12px] md:py-[20px] py-[18px] bg-white md:text-[12px] text-[8px] md:leading-[15px] leading-[10ox] rounded-[15px] ">
           <div className="beauty-scroll overflow-y-scroll md:h-[180px] h-[84px] md:px-[35px] px-[19px]">
             <span className="font-inter-600 ">
+              [Age Requirement] <br />
+            </span>
+            <span className="font-inter-400 ">
+              Participants in the XPLA Event must be at least 16 years old.
+              Users must agree that they have reviewed and understood the age
+              restriction policy of the XPLA Event to participate.
+              <br />
+            </span>
+            <br />
+            <span className="font-inter-600 ">
               [Agreement to Use and Collection of Personal Information] <br />
             </span>
             <span className="font-inter-400 ">
               MetaCross may collect and use your personal information for the
               event.
               <br />
-              1) Purpose: To run events and select and announce winners <br />
-              2) Collected information: Zealy username, XPLA Vault wallet
-              address, email address, Twitter Username, Telegram Username,
-              DiscordHandle
+              1) Purpose: For event participation. <br />
+              2) Collected information: XPLA Vault wallet address
               <br />
-              3) Storage & Usage Period: Kept for 3 month after the winner
-              announcement Refusal to provide consent for the collection and
-              utilization of personal information is possible; however, it must
-              be noted that such refusal will result in the inability to
-              participate in the event.
+              3) Storage & Usage Period: Kept for 3 months after the event's
+              conclusion.
+              <br />
+              Refusal to provide consent for the collection and utilization of
+              personal information is possible; however, it must be noted that
+              such refusal will result in the inability to participate in the
+              event.
               <br />
             </span>
             <br />
             <span className="font-inter-600 ">
-              [Agreement to International Transfer of Personal Information]{" "}
+              [Agreement to International Transfer of Personal Information]
               <br />
             </span>
             <span className="font-inter-400 ">
-              MetaCross may transfer collected personal information globally in
-              order to provide a seamless event.
+              MetaCross may transfer collected personal information globally to
+              provide a seamless event.
               <br />
               - Transfer Destination: Singapore <br />
               - Transferred information: XPLA Vault wallet address
               <br />
-              - Purpose: To run events and select and announce winners
+              - Purpose: For event participation.
+              <br />
+              - Storage & Usage Period: Kept for 3 months after the event's
+              conclusion.
               <br />
             </span>
             <br />
@@ -72,20 +87,24 @@ const Modal = () => {
               <br />
               - Refusal to consent to the collection, use, and overseas transfer
               of personal information may result in limitations on event
-              participation and reward distribution. <br />- Personal
-              information of individuals under the age of 16 or users who are
-              not selected as winners will be immediately destroyed. <br />
+              participation and reward distribution.
+              <br />
+              - Personal information of individuals under the age of 16 or users
+              who are not selected as winners will be immediately destroyed.{" "}
+              <br />
               - If you wish to withdraw your consent for the collected personal
               information, you may request access, correction, or deletion
               through the Personal Data Protection Department. However, in such
               cases, reward distribution may be canceled. <br />
               {">"} Request to open/revise/discard your personal information
               (free of charge): Please contact XPLA Customer Support
-              (XPLA_CS@xpla.io). <br />
+              (XPLA_CS@xpla.io).
+              <br />
               - For more information, contact XPLA Customer Support:
               XPLA_CS@xpla.io <br />
-              - In order to get rewards, you must submit your XPLA Vault Wallet
-              address correctly. <br />
+              - To get rewards, you must submit your XPLA Vault Wallet address
+              correctly.
+              <br />
               - When an event winner claims an event reward, a small amount of
               $XPLA is required as a fee. <br />
               - The event schedule is subject to change depending on the
@@ -93,9 +112,8 @@ const Modal = () => {
               - Any changes will get announced through our official communities:
               Twitter and Medium. <br />
               - Participation is available once per account. <br />
-              - Users who participate in the Airdrop Event unfairly or illegally
-              may be excluded from the list of winners. <br />- Restricted
-              Country: Korea, Japan, Singapore, and China(PRC) <br />
+              - Restricted Country: China(PRC), Singapore, Japan, Korea, and the
+              United States. <br />
               - If you abuse or overlap participation, you will be excluded from
               the winner's list. <br />
             </span>
@@ -141,7 +159,25 @@ const Modal = () => {
             )}
           </div>
           <div className="font-inter-600 md:text-[16px] text-[8px] md:leading-[19px] leading-[10px] tracking-tight">
-            I agree to the Terms of Use, the Privacy Policy, and event disclaimer.
+            I agree to the{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="/terms_of_use"
+              className="underline"
+            >
+              Terms of Use,
+            </a>{" "}
+            the{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="/privacy_policy"
+              className="underline"
+            >
+              Privacy Policy
+            </a>
+            , and event disclaimer.
           </div>
         </div>
         <button
