@@ -22,31 +22,37 @@ getChainOptions().then((chainOptions) => {
             <Route
               path="/privacy_policy"
               element={
-                <iframe
-                  title="privacy_policy"
-                  className="border-0 w-screen h-screen"
-                  src="/PRIVACY_POLICY.pdf"
-                />
+                <div className="App">
+                  <iframe
+                    title="privacy_policy"
+                    className="border-0 w-screen h-screen"
+                    src="/PRIVACY_POLICY.pdf"
+                  />
+                </div>
               }
             />
             <Route
               path="/cookie_policy"
               element={
-                <iframe
-                  title="cookie_policy"
-                  className="border-0 w-screen h-screen"
-                  src="/COOKIE_POLICY.pdf"
+                <div className="App">
+                  <iframe
+                    title="cookie_policy"
+                    className="border-0 w-screen h-screen"
+                    src="/COOKIE_POLICY.pdf"
                   />
-                }
-                />
+                </div>
+              }
+            />
             <Route
               path="/terms_of_use"
               element={
-                <iframe
-                title="terms_of_use"
-                className="border-0 w-screen h-screen"
-                src="/TERMS_OF_USE.pdf"
-                />
+                <div className="App">
+                  <iframe
+                    title="terms_of_use"
+                    className="border-0 w-screen h-screen"
+                    src="/TERMS_OF_USE.pdf"
+                  />
+                </div>
               }
             />
           </Routes>

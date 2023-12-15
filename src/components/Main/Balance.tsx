@@ -3,6 +3,8 @@ import useBalance from "../useQuery/useBalance";
 import { CircularProgress, useMediaQuery } from "@mui/material";
 import BigNumber from "bignumber.js";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import { useCallback, useState } from "react";
+import clsx from "clsx";
 
 const Balance = () => {
   const { status, wallets } = useWallet();
@@ -65,23 +67,53 @@ const XPLABalance = ({ address }: { address: string }) => {
 const ShowSecretCode = ({ address }: { address: string }) => {
   const { data, isLoading } = useBalance(address);
   const isDesktop = useMediaQuery("(min-width:768px)");
-
+  const [copyAnimation, setCopyAnimation] = useState<boolean>(true);
+  const [isCopy, setIsCopy] = useState<boolean>(false);
+  
+  const handleClickCopy = useCallback((link : string) => {
+    setCopyAnimation(true);
+    setIsCopy(true);
+    setTimeout(() => {
+      setCopyAnimation(false);
+    }, 1000);
+    setTimeout(() => {
+      setIsCopy(false);
+    }, 1500);
+    copyToClipboard(link);
+  }, []);
+  
   return (
     <>
       {isLoading ? (
         <CircularProgress style={{ color: "white" }} size={70} />
       ) : Number(onlyInt(data?.balance.amount || "0")) < 1 ? (
         <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[12px] leading-[12px] text-[#0080FF]">
-          You need{!isDesktop && <br/>} at least{isDesktop && <br/>} 1 XPLA{!isDesktop && <br/>} to get Secret Code!
+          You need{!isDesktop && <br />} at least{isDesktop && <br />} 1 XPLA
+          {!isDesktop && <br />} to get Secret Code!
         </span>
       ) : (
         <span className="w-full relative font-pretendard md:text-[32px] md:leading-[38px] text-[14px] leading-[12px] text-[#0080FF]">
           {process.env.REACT_APP_BALANCE}
-          <ContentCopyIcon
-            onClick={() => copyToClipboard(process.env.REACT_APP_BALANCE)}
-            className="absolute md:top-[5px] top-[-6px] right-[0px] w-[10px] h-[10px] scale-y-[-1] hover:opacity-80 hover:cursor-pointer"
-            style={{ color: "#636161", width : isDesktop ? 40 : 14 }}
-          />
+          <div className="absolute md:top-[0px] top-[-6px] right-[0px] ">
+            <div className="releative">
+              <ContentCopyIcon
+                onClick={() =>
+                  handleClickCopy(process.env.REACT_APP_BALANCE || "")
+                }
+                className="w-[10px] h-[10px] scale-y-[-1] hover:opacity-80 hover:cursor-pointer"
+                style={{ color: "#636161", width: isDesktop ? 40 : 14 }}
+              />
+              {isCopy && (
+                <img
+                  src="/img/copy.svg"
+                  className={clsx(
+                    "absolute md:left-[3px] left-[2px] md:bottom-[37px] bottom-[20px] w-[60px] ",
+                    !copyAnimation && "fadeOut"
+                  )}
+                />
+              )}
+            </div>
+          </div>
         </span>
       )}
     </>
