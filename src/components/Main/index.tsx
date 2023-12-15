@@ -3,7 +3,17 @@ import Balance from "./Balance";
 import NFT from "./NFT";
 import Stake from "./Stake";
 import Tx from "./Tx";
+import { useMediaQuery } from "@mui/material";
 const Main = () => {
+  const isDesktop = useMediaQuery("(min-width:768px)");
+
+  const Link = [
+    "https://assets.xpla.io/pdf/PRIVACY_POLICY.pdf",
+    "https://assets.xpla.io/pdf/COOKIE_POLICY.pdf",
+    "https://assets.xpla.io/pdf/TERMS_OF_USE.pdf",
+  ];
+  const gview = "https://docs.google.com/gview?embedded=true&url=";
+  
   return (
     <div className="flex flex-col justify-center bg-white items-center">
       <div className="md:max-w-[1180px] md:w-full md:mt-[80px] mt-[25px] md:mb-[86px] mb-[24px] flex flex-col md:gap-[80px] justify-center items-center md:px-[0px] px-[20px] ">
@@ -23,7 +33,9 @@ const Main = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://assets.xpla.io/pdf/PRIVACY_POLICY.pdf"
+              href={
+                isDesktop ? Link[0] : gview + Link[0]
+              }
               className="md:hover:cursor-pointer md:hover:opacity-80 md:mr-[0px] mr-[20px]"
             >
               Privacy Policy
@@ -32,7 +44,9 @@ const Main = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://assets.xpla.io/pdf/COOKIE_POLICY.pdf"
+              href={
+                isDesktop ? Link[1] : gview + Link[1]
+              }
               className="md:hover:cursor-pointer md:hover:opacity-80 md:mr-[0px] mr-[20px]"
             >
               Cookie Policy
@@ -41,7 +55,9 @@ const Main = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://assets.xpla.io/pdf/TERMS_OF_USE.pdf"
+              href={
+                isDesktop ? Link[2] : gview + Link[2]
+              }
               className="md:hover:cursor-pointer md:hover:opacity-80"
             >
               Terms of Use
