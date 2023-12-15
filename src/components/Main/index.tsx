@@ -12,7 +12,7 @@ const Main = () => {
     "https://assets.xpla.io/pdf/COOKIE_POLICY.pdf",
     "https://assets.xpla.io/pdf/TERMS_OF_USE.pdf",
   ];
-  const gview = "https://docs.google.com/gview?embedded=true&url=";
+  const gview = "https://docs.google.com/viewerng/viewer?embedded=true&url=";
   
   return (
     <div className="flex flex-col justify-center bg-white items-center">
@@ -34,7 +34,7 @@ const Main = () => {
               target="_blank"
               rel="noopener noreferrer"
               href={
-                isDesktop ? Link[0] : gview + Link[0]
+                isDesktop && window.navigator.platform === 'iPhone' ? Link[0] : gview + Link[0]
               }
               className="md:hover:cursor-pointer md:hover:opacity-80 md:mr-[0px] mr-[20px]"
             >
@@ -45,7 +45,7 @@ const Main = () => {
               target="_blank"
               rel="noopener noreferrer"
               href={
-                isDesktop ? Link[1] : gview + Link[1]
+                isDesktop && window.navigator.platform === 'iPhone' ? Link[1] : gview + Link[1]
               }
               className="md:hover:cursor-pointer md:hover:opacity-80 md:mr-[0px] mr-[20px]"
             >
@@ -56,7 +56,7 @@ const Main = () => {
               target="_blank"
               rel="noopener noreferrer"
               href={
-                isDesktop ? Link[2] : gview + Link[2]
+                isDesktop && window.navigator.platform === 'iPhone' ? Link[2] : gview + Link[2]
               }
               className="md:hover:cursor-pointer md:hover:opacity-80"
             >
