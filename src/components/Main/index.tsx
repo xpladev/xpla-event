@@ -23,7 +23,7 @@ const Main = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="/privacy_policy"
+              href="/#/privacy_policy"
               className="md:hover:cursor-pointer md:hover:opacity-80 md:mr-[0px] mr-[20px]"
             >
               Privacy Policy
@@ -32,7 +32,7 @@ const Main = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="/cookie_policy"
+              href="/#/cookie_policy"
               className="md:hover:cursor-pointer md:hover:opacity-80 md:mr-[0px] mr-[20px]"
             >
               Cookie Policy
@@ -41,7 +41,7 @@ const Main = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="/terms_of_use"
+              href="/#/terms_of_use"
               className="md:hover:cursor-pointer md:hover:opacity-80"
             >
               Terms of Use

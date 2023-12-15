@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { getChainOptions, WalletProvider } from "@xpla/wallet-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +16,7 @@ getChainOptions().then((chainOptions) => {
   root.render(
     <WalletProvider {...chainOptions}>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<App />} />
             <Route
@@ -56,7 +56,7 @@ getChainOptions().then((chainOptions) => {
               }
             />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </QueryClientProvider>
     </WalletProvider>
   );

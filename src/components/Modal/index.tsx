@@ -163,7 +163,7 @@ const Modal = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="/terms_of_use"
+              href="/#/terms_of_use"
               className="underline"
             >
               Terms of Use,
@@ -172,7 +172,7 @@ const Modal = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="/privacy_policy"
+              href="/#/privacy_policy"
               className="underline"
             >
               Privacy Policy
