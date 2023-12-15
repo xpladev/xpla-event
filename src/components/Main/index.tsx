@@ -24,10 +24,11 @@ const Main = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://xpla.io/"
+              className="underline"
             >
-              XPLA.
+              XPLA
             </a>
-          {" "} All rights reserved.
+          .{" "} All rights reserved.
           </span>
           <div className="flex md:gap-[22px] font-semibold md:leading-[18px] ">
             <a
