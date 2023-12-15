@@ -163,7 +163,7 @@ const Modal = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="/#/terms_of_use"
+              href="https://assets.xpla.io/pdf/TERMS_OF_USE.pdf"
               className="underline"
             >
               Terms of Use,
@@ -172,7 +172,7 @@ const Modal = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="/#/privacy_policy"
+              href="https://assets.xpla.io/pdf/PRIVACY_POLICY.pdf"
               className="underline"
             >
               Privacy Policy
