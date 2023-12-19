@@ -97,7 +97,7 @@ const ShowSecretCode = ({ address }: { address: string }) => {
             <div className="releative">
               <ContentCopyIcon
                 onClick={() =>
-                  handleClickCopy(process.env.REACT_APP_BALANCE || "")
+                  handleClickCopy(process.env.REACT_APP_TX || "")
                 }
                 className="w-[10px] h-[10px] scale-y-[-1] hover:opacity-80 hover:cursor-pointer"
                 style={{ color: "#636161", width: isDesktop ? 40 : 14 }}
