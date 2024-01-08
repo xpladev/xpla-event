@@ -1,14 +1,17 @@
+import { useMediaQuery } from "@mui/material";
 import "./App.css";
 import Connect from "./components/Connect";
 import Main from "./components/Main";
 import Modal from "./components/Modal";
 
 function App() {
+  const isMobile = useMediaQuery("(max-width:768px)");
+
   return (
     <div className="App">
       <header className="App-header">
         <div className="w-[1180px] flex justify-between font-sora-700 text-gradient md:text-[30px] text-[16px]">
-          <span>XPLA EVENT NOW LiVE</span>
+          <span>XPLA EVENT</span>
           <div className="flex justify-center items-center md:gap-[15px]">
             <img
               src="/img/xlogo.svg"
@@ -45,21 +48,25 @@ function App() {
       </header>
       <div className="bg-black bg-star md:h-[620px] h-[330px] flex justify-center items-center md:px-[20px]">
         <div className="w-[1180px] h-full flex flex-col md:gap-[80px] justify-center md:items-start items-center relative">
-          <div className="flex justify-start font-sora-700 text-gradient md:text-start text-center md:mb-[0px] mb-[40px]">
-            <span className="md:text-[65px] text-[26px] md:leading-[82px] leading-[35px]">
-              Connect your wallet
-              <br />
-              and join the event NOW!
+          <div className="flex flex-col md:gap-[15px] justify-start font-sora-700  md:text-start text-center md:mb-[0px] mb-[20px]">
+            <div className="text-gradient">
+              <span className="md:text-[65px] text-[36px] md:leading-[82px] leading-[40px]">
+                New Event {isMobile && <br />} Coming Soon!
+              </span>
+            </div>
+            <span className="md:text-[30px] md:mt-[0px] mt-[9px] md:font-semibold md:leading-[36px] text-[13px] font-medium leading-[16px] text-white">
+              Stay Tuned to XPLA Community for
+              {isMobile && <br />} Upcoming Events.
             </span>
           </div>
           <div className="flex md:flex-row flex-col justify-start md:gap-[20px] text-white font-sora-500 md:text-[30px] text-[20px]">
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://zealy.io/c/xpla/questboard"
+              href="https://linktr.ee/xpla_official"
               className="flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] hover:cursor-pointer md:mb-[0px] mb-[20px]"
             >
-              XPLA Zealy Quest
+              Official Links
             </a>
             <Connect />
           </div>

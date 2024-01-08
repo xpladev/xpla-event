@@ -134,7 +134,7 @@ export default function Connect() {
               handleBlurContainer();
             }
           }}
-          className="relative flex justify-center items-center"
+          className="connectwalletshadow relative flex justify-center items-center"
         >
           <button
             className="flex md:min-w-[327px] w-full md:leading-[38px] leading-[25px] z-10 items-center justify-center md:gap-[10px] md:mb-[0px] mb-[10px] px-[45px] py-[10px] rounded-[100px] hover:cursor-pointer bg-gradient-to-r to-[#0080FF] from-[#00AAFF]"
@@ -165,7 +165,7 @@ export default function Connect() {
             setShowTooltip(false);
             clickConnect();
           }}
-          className="flex md:min-w-[327px] md:leading-[38px] leading-[25px] z-10 items-center justify-center gap-[10px] px-[45px] py-[10px] rounded-[100px] hover:cursor-pointer bg-gradient-to-r to-[#0080FF] from-[#00AAFF]"
+          className="connectwalletshadow flex md:min-w-[327px] md:leading-[38px] leading-[25px] z-10 items-center justify-center gap-[10px] px-[45px] py-[10px] rounded-[100px] hover:cursor-pointer bg-gradient-to-r to-[#0080FF] from-[#00AAFF]"
         >
           Connect Wallet
           {loginLoading && (
