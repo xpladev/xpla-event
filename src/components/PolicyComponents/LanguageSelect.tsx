@@ -23,9 +23,8 @@ const LanguageSelect = ({ classname = "" } : {classname? : string}) => {
             onClick={() => setOpen(!open)}
             className={clsx(
                 "relative w-[120px]  bg-white",
-                "border border-[#878D96] md:border-0",
                 "hover:border hover:border-[#878D96]  hover:cursor-pointer",
-                open ? "border border-[#878D96] border-b-0" : ""
+                open ? "border border-[#878D96] border-b-0" : "border border-[#878D96] md:border-0"
             )}>
             <div className="  flex justify-between items-center py-[4.5px] pl-[10px] text-[#878D96] hover:text-black ">
 
