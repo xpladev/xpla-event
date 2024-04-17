@@ -17,7 +17,7 @@ const Cookie = () => {
                 <LanguageSelect classname="mb-[20px] block md:hidden"/>
                 <LeftSidebar />
                 <Content
-                    title="Privacy Policy"
+                    title="Cookie Policy"
                     policiesData={cookieData}
                     index={cookieIndex}
                     setIndex={setCookieIndex}
