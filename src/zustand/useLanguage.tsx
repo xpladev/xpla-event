@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 
 interface LanguageState {
-    language: string;
-    setLanguage: (input: string) => void;
+    language: "english" | "korean";
+    setLanguage: (input: "english" | "korean") => void;
 }
 
 const useLanguage = create<LanguageState>(set => ({
