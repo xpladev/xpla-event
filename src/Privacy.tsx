@@ -1,0 +1,31 @@
+import React, { useState } from "react";
+import Header from "./components/PolicyComponents/Header";
+import LeftSidebar from "./components/PolicyComponents/LeftSidebar";
+import Content from "./components/PolicyComponents/Content";
+import privacyData from "./privacy.json";
+import TopButton from "./components/PolicyComponents/TopButton";
+import LanguageSelect from "./components/PolicyComponents/LanguageSelect";
+
+
+const Privacy = () => {
+    const [privacyIndex, setPrivacyIndex] = useState<number>(0);
+
+    return <>
+        <Header />
+        <div className="w-full pt-[80px] flex justify-center items-start">
+            <div className="w-full max-w-[1920px] pl-[20px] md:pl-[40px] pt-[20px] md:pt-[50px] pb-[200px] pr-[35px] flex md:flex-row flex-col ">
+                <LanguageSelect classname="mb-[20px] block md:hidden"/>
+                <LeftSidebar />
+                <Content
+                    title="Privacy Policy"
+                    policiesData={privacyData}
+                    index={privacyIndex}
+                    setIndex={setPrivacyIndex}
+                />
+            </div>
+            <TopButton />
+        </div>
+    </>
+}
+
+export default Privacy;

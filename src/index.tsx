@@ -11,6 +11,9 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Privacy from './Privacy';
+import Cookie from './Cookie';
 
 const queryClient = new QueryClient()
 
@@ -21,7 +24,13 @@ getChainOptions().then((chainOptions) => {
   root.render(
     <WalletProvider {...chainOptions}>
       <QueryClientProvider client={queryClient}>
-      <App />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/cookie" element={<Cookie />} />
+          </Routes>
+        </BrowserRouter>
       </QueryClientProvider>
     </WalletProvider>
   );
