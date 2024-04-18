@@ -1,5 +1,4 @@
 import React from "react";
-import LanguageSelect from "./LanguageSelect";
 
 const Header = () => {
     return <header className="z-10 fixed top-0 left-0 right-0 w-full bg-black h-[80px] flex justify-center items-center">
@@ -16,7 +15,6 @@ const Header = () => {
                     Policies
                 </span>
             </div>
-            <LanguageSelect classname="absolute top-0 right-[35px] hidden md:block" />
         </div>
     </header>
 }
