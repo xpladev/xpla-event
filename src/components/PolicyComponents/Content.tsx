@@ -27,11 +27,11 @@ const Content = ({ title,
     };
 
     return <div className="flex flex-col max-w-[1290px] w-full">
-        <div className="flex justify-start items-end mt-[-8px]">
+        <div className="flex justify-start items-end ">
             <div className="text-black text-[40px] font-bold leading-[48px] mr-[16px]">
                 {title}
             </div>
-            <div className="text-[16px] leading-[19px] text-[#878D96] font-normal mb-[5px]">
+            <div className="text-[16px] leading-[19px] text-[#878D96] font-normal mb-[3px]">
                 Last modified: {getDateFormat(policiesData[0].date)}
             </div>
         </div>
