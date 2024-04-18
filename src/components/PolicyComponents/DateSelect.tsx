@@ -21,13 +21,14 @@ const DateSelect = ({ policiesData, index, setIndex }: {
         return () => document.removeEventListener('click', handleOutsideClose);
     }, [open]);
 
-    return <div
+    return <div className={clsx("w-[300px]", open && "border border-black")}> 
+    <div
         ref={selectRef}
         onClick={() => setOpen(!open)}
         className={clsx(
-            "relative w-[300px] bg-[#EEF7FF]",
-            "hover:border hover:border-black  hover:cursor-pointer",
-            open ? "border border-black border-b-0" : ""
+            "  bg-[#EEF7FF]",
+            " hover:cursor-pointer",
+            open ? "" : "hover:border hover:border-black "
         )}>
         <div className="flex justify-between items-center py-[6.5px] pl-[10px] text-black ">
 
@@ -40,7 +41,7 @@ const DateSelect = ({ policiesData, index, setIndex }: {
                 open && "rotate-180"
             )} />
         </div>
-        <div className={clsx("absolute w-[300px] left-[-0.9px] top-[33px] bg-[#EEF7FF] border border-black border-t-0",
+        <div className={clsx("  bg-[#EEF7FF]",
             !open && "hidden"
         )}>
             {/* {
@@ -73,6 +74,7 @@ const DateSelect = ({ policiesData, index, setIndex }: {
                 </div>)
             }
         </div>
+    </div>
     </div>
 }
 

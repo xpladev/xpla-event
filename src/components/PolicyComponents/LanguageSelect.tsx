@@ -3,28 +3,28 @@ import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownR
 import useLanguage from "../../zustand/useLanguage";
 import clsx from "clsx";
 
-const LanguageSelect = ({ classname = "" } : {classname? : string}) => {
+const LanguageSelect = ({ classname = "" }: { classname?: string }) => {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const { language, setLanguage } = useLanguage();
     const [open, setOpen] = useState<boolean>(false);
 
     useEffect(() => {
-        const handleOutsideClose = (e: {target: any}) => {
-          if(open && (!selectRef.current?.contains(e.target))) setOpen(false);
+        const handleOutsideClose = (e: { target: any }) => {
+            if (open && (!selectRef.current?.contains(e.target))) setOpen(false);
         };
         document.addEventListener('click', handleOutsideClose);
-        
-        return () => document.removeEventListener('click', handleOutsideClose);
-      }, [open]);
 
-    return <div className={clsx(classname)}>
+        return () => document.removeEventListener('click', handleOutsideClose);
+    }, [open]);
+
+    return <div className={clsx(classname, "absolute right-0 top-0 ", open && "border border-black ")}>
         <div
             ref={selectRef}
             onClick={() => setOpen(!open)}
             className={clsx(
                 "relative w-[120px] ",
-                "hover:border hover:border-[#878D96] hover:bg-white hover:cursor-pointer",
-                open ? "border border-[#878D96] border-b-0 bg-white" : "border border-[#878D96] md:border-0 bg-[#F2F2F2]"
+                "hover:cursor-pointer hover:bg-white",
+                open ? " bg-white" : "border border-[#878D96] md:border-0 bg-[#F2F2F2] hover:border hover:border-[#878D96]"
             )}>
             <div className="  flex justify-between items-center py-[4.5px] pl-[10px] text-[#878D96] hover:text-black ">
 
@@ -37,8 +37,8 @@ const LanguageSelect = ({ classname = "" } : {classname? : string}) => {
                     open && "rotate-180"
                 )} />
             </div>
-            <div className={clsx("absolute w-[120px] left-[-0.9px] top-[33px] bg-white border border-[#878D96] border-t-0",
-                !open && "hidden"
+            <div className={clsx("w-[120px] bg-white",
+                open ? "" : "hidden"
             )}>
                 <div
                     onClick={() => setLanguage(language === "english" ? "korean" : "english")}
