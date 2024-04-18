@@ -24,7 +24,7 @@ const LanguageSelect = ({ classname = "" }: { classname?: string }) => {
             className={clsx(
                 "relative w-[120px] ",
                 "hover:cursor-pointer hover:bg-white",
-                open ? " bg-white" : "border border-[#878D96] md:border-0 bg-[#F2F2F2] hover:border hover:border-[#878D96]"
+                open ? " bg-white" : " bg-[#F2F2F2] hover:border hover:border-[#878D96]"
             )}>
             <div className="  flex justify-between items-center py-[4.5px] pl-[10px] text-[#878D96] hover:text-black ">
 
