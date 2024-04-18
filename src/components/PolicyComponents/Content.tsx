@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import DateSelect from "./DateSelect";
-import { PoliciesData } from "../../type";
+import { PoliciesData, TableData } from "../../type";
 import useLanguage from "../../zustand/useLanguage";
+import clsx from "clsx";
 
 const Content = ({ title,
     policiesData, index, setIndex
@@ -12,7 +13,7 @@ const Content = ({ title,
     setIndex: React.Dispatch<React.SetStateAction<number>>
 }) => {
     const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
-    const {language } = useLanguage();
+    const { language } = useLanguage();
 
     const onMoveToContentElement = (i: number) => {
 
@@ -40,28 +41,46 @@ const Content = ({ title,
                 Index
             </div>
             {
-                policiesData[index].article.map((data, i) => <div
+                policiesData[index].article.filter((data) => data.index ).map((data) => <div
                     className="text-[18px] text-[#004FFF] leading-[26px] font-normal mt-[12px] "
                 >
-                    <span >{`${i + 1}. `}</span>
+                    <span >{`${data.index}. `}</span>
                     <span
-                        onClick={() => onMoveToContentElement(i)}
+                        onClick={() => onMoveToContentElement(data.index!)}
                         className="hover:underline hover:cursor-pointer">{`${data[language].title}`}</span>
 
                 </div>)
             }
         </div>
         {
-            policiesData[index].article.map((data, i) => <div className="mb-[39px]"
-                ref={(el) => (contentRefs.current[i] = el)}
+            policiesData[index].article.map((data) => <div className={data[language].noborder ? "mb-[15px]" : "mb-[39px]"}
+                ref={(el) => {
+                    if (data.index) {
+                        (contentRefs.current[data.index] = el)
+                    }
+                }}
             >
-                <div className="mb-[18px] font-bold text-[26px] leading-[31px]">
-                    {data[language].title}
-                </div>
-                <div className="font-normal text-[18px] leading-[26px] text-[#4D5358]">
-                    {data[language].content}
-                </div>
-                <div className="mt-[40px] border bordre-[1px] border-t-0 border-black" />
+
+                {
+                    data[language].title &&
+                    <div className="mb-[18px] font-bold text-[26px] leading-[31px]">
+                        {data[language].title}
+                    </div>
+                }
+                {
+                    data[language].content &&
+                    <div className="font-normal text-[18px] leading-[26px] text-[#4D5358]">
+                        {data[language].content}
+                    </div>
+                }
+                {
+                    data[language].table &&
+                    <Table tabledata={data[language].table} />
+                }
+                {
+                    !(data[language].noborder) &&
+                    <div className="mt-[40px] border bordre-[1px] border-t-0 border-black" />
+                }
             </div>)
         }
         <div>
@@ -87,4 +106,33 @@ const getDateFormat = (date: string) => {
     ];
 
     return `${monthNames[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
+}
+
+const Table = ({ tabledata }: { tabledata: TableData[][] | undefined }) => {
+    if (!tabledata) return <></>
+    return <div className="border border-[#878D96] min-w-[1080px] w-full">
+        <div className="bg-[#F2F4F8] flex px-[20px] py-[12px]">
+            {
+                tabledata[0].map((headerData) => {
+                    return <div style={headerData.style}>
+                        {headerData.content}
+                    </div>
+                })
+            }
+        </div>
+        {
+            tabledata.filter((d, i) => i > 0).map((data) => {
+                return <div className="bg-white flex items-center">
+                    {
+                        data.map((contentData) => {
+                            return <div style={contentData.style}>
+                                {contentData.content}
+                            </div>
+                        })
+                    }
+                </div>
+            })
+        }
+
+    </div>
 }

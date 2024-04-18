@@ -2,13 +2,23 @@
 export interface PoliciesData {
     date: string;
     article: {
+        index?: number,
         english: {
-            title: string;
-            content: string;
+            noborder?: boolean;
+            title?: string;
+            content?: string;
+            table?: TableData[][];
         },
         korean: {
-            title: string;
-            content: string;
+            noborder?: boolean;
+            title?: string;
+            content?: string;
+            table?: TableData[][];
         }
     }[]
+}
+
+export interface TableData {
+    content : string
+    style: any
 }
