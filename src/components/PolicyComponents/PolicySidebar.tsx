@@ -6,7 +6,7 @@ const PolicySidebar = () => {
     const location = useLocation();
     const { pathname } = location;
 
-    return <div className="flex flex-col md:flex-row">
+    return <div className="md:mt-0 mt-[60px] flex ">
         <Link
             className={clsx("text-[16px] font-medium leading-[19px] mr-[12px]",
                 pathname === "/privacy" ? "text-[#00B1FF]" : "text-[#878D96]"
@@ -15,8 +15,7 @@ const PolicySidebar = () => {
         >
             Privacy Policy
         </Link>
-        <div className="md:hidden w-full mt-[11px] mb-[10px] border border-[0.7px] border-t-0 border-[#878D96]" />
-        <div className="hidden md:block border-r-[0.7px]  border-[#878D96] mr-[12px]" />
+        <div className="border-r-[0.7px]  border-[#878D96] mr-[12px]" />
         <Link
             className={clsx("text-[16px] font-medium leading-[19px] ",
                 pathname === "/cookie" ? "text-[#00B1FF]" : "text-[#878D96]"
