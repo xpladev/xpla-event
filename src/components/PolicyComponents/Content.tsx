@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import DateSelect from "./DateSelect";
 import { PoliciesData, TableData } from "../../type";
 import useLanguage from "../../zustand/useLanguage";
-import clsx from "clsx";
 
 const Content = ({ title,
     policiesData, index, setIndex
@@ -28,11 +27,11 @@ const Content = ({ title,
     };
 
     return <div className="flex flex-col max-w-[1290px] w-full">
-        <div className="flex justify-start items-end ">
+        <div className="flex justify-start items-start md:items-end flex-col md:flex-row">
             <div className="text-black text-[40px] font-bold leading-[48px] mr-[16px]">
                 {title}
             </div>
-            <div className="text-[16px] leading-[19px] text-[#878D96] font-normal mb-[3px]">
+            <div className="text-[16px] leading-[19px] text-[#878D96] font-normal mb-[3px] mt-[10px] md:mt-0">
                 Last modified: {getDateFormat(policiesData[0].date)}
             </div>
         </div>
@@ -110,8 +109,8 @@ const getDateFormat = (date: string) => {
 
 const Table = ({ tabledata }: { tabledata: TableData[][] | undefined }) => {
     if (!tabledata) return <></>
-    return <div className="border border-[#878D96] min-w-[1080px] w-full">
-        <div className="bg-[#F2F4F8] flex px-[20px] py-[12px]">
+    return <div className="border border-[#878D96]  w-full overflow-auto">
+        <div className="bg-[#F2F4F8] flex px-[20px] min-w-[1080px] py-[12px]">
             {
                 tabledata[0].map((headerData) => {
                     return <div style={headerData.style}>
@@ -122,7 +121,7 @@ const Table = ({ tabledata }: { tabledata: TableData[][] | undefined }) => {
         </div>
         {
             tabledata.filter((d, i) => i > 0).map((data) => {
-                return <div className="bg-white flex items-center">
+                return <div className="bg-white flex items-center min-w-[1080px]">
                     {
                         data.map((contentData) => {
                             return <div style={contentData.style}>

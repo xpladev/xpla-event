@@ -21,7 +21,7 @@ const DateSelect = ({ policiesData, index, setIndex }: {
         return () => document.removeEventListener('click', handleOutsideClose);
     }, [open]);
 
-    return <div className={clsx("w-[300px]", open && "border border-black")}> 
+    return <div className={clsx("max-w-[300px]", open && "border border-black")}> 
     <div
         ref={selectRef}
         onClick={() => setOpen(!open)}
