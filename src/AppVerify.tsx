@@ -1,13 +1,12 @@
 import { useMediaQuery } from "@mui/material";
 import "./App.css";
-import Connect from "./components/Connect";
 import Modal from "./components/Modal";
 import Verify from "./components/Verify";
 import { WalletStatus, useConnectedWallet, useWallet } from "@xpla/wallet-provider";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import CryptoJS from "crypto-js";
 import axios from "axios";
+import VerifyConnect from "./components/Connect/VerifyConnect";
 
 function AppVerify() {
   const isMobile = useMediaQuery("(max-width:768px)");
@@ -86,7 +85,7 @@ function AppVerify() {
             </span>
           </div>
           <div className="flex md:flex-row flex-col justify-start md:gap-[20px] text-white font-sora-500 md:text-[30px] text-[20px]">
-            <Connect />
+            <VerifyConnect />
             {status === WalletStatus.WALLET_CONNECTED && wallets.length > 0 && connectedWallet &&
               <button
                 onClick={async () => {
@@ -105,7 +104,7 @@ function AppVerify() {
                     const signMessages = `XPLA_Bot은 여러분의 주소 소유권을 증명하기 위해, 이 메시지를 서명하기를 요청합니다. 이것은 읽기 전용 접근이고, 어떤 블록체인 트랜잭션도 만들지 않으며, 수수료도 부과하지 않습니다.\n\n- User : ${username} | ${userId}\n- Timestamp : ${timestamp}`;
                     const result = await connectedWallet.signBytes(Buffer.from(signMessages));
 
-                    const a = await axios.post("http://192.168.132.61:5641/signresult", {
+                    const a = await axios.post("https://cube-hive.xpla.dev/discord/signresult", {
                       signbytes: result,
                       address: connectedWallet.xplaAddress,
                       userId,
