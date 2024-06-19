@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import AppVerify from './AppVerify';
+import AppDraw from './AppDraw';
 import reportWebVitals from './reportWebVitals';
 import {
   getChainOptions,
@@ -29,6 +30,7 @@ getChainOptions().then((chainOptions) => {
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/verify" element={<AppVerify />} />
+            <Route path="/draw" element={<AppDraw />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/cookie" element={<Cookie />} />
           </Routes>
