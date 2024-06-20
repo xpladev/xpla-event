@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import VerifyConnect from "./components/Connect/VerifyConnect";
+import clsx from "clsx";
 
 function AppVerify() {
   const isMobile = useMediaQuery("(max-width:768px)");
@@ -70,7 +71,7 @@ function AppVerify() {
           </div>
         </div>
       </header>
-      <div className="bg-black bg-star md:h-[620px] h-[330px] flex justify-center items-center md:px-[20px]">
+      <div className={clsx("bg-black bg-star flex justify-center items-center md:px-[20px]", status === WalletStatus.WALLET_CONNECTED && wallets.length > 0 ? "md:h-[620px] h-[330px]" : "md:h-[calc(100vh-280px)] h-[calc(100vh-160px)]")}>
         <div className="w-[1180px] h-full flex flex-col md:gap-[80px] justify-center md:items-start items-center relative">
           <div className="flex flex-col md:gap-[15px] justify-start font-sora-700  md:text-start text-center md:mb-[0px] mb-[20px]">
             <div className="text-gradient">
@@ -104,7 +105,7 @@ function AppVerify() {
                     const signMessages = `XPLA_Bot은 여러분의 주소 소유권을 증명하기 위해, 이 메시지를 서명하기를 요청합니다. 이것은 읽기 전용 접근이고, 어떤 블록체인 트랜잭션도 만들지 않으며, 수수료도 부과하지 않습니다.\n\n- User : ${username} | ${userId}\n- Timestamp : ${timestamp}`;
                     const result = await connectedWallet.signBytes(Buffer.from(signMessages));
 
-                    const a = await axios.post("https://cube-hive.xpla.dev/discord/signresult", {
+                    const a = await axios.post(`${process.env.REACT_APP_ENV === "development" ? "http://localhost:5641" : "https://cube-hive.xpla.dev/discord"}/signresult`, {
                       signbytes: result,
                       address: connectedWallet.xplaAddress,
                       userId,
@@ -138,13 +139,24 @@ function AppVerify() {
               </button>
             }
           </div>
-          <img
-            src="/img/wallet.svg"
-            className="block max-[1400px]:hidden absolute left-[774px] bottom-[0px]"
-            alt="vault-wallet"
-            width="506px"
-            height="620px"
-          />
+          {status === WalletStatus.WALLET_CONNECTED && wallets.length > 0
+            ?
+            <img
+              src="/img/wallet.svg"
+              className="block max-[1400px]:hidden absolute left-[774px] bottom-[0px]"
+              alt="vault-wallet"
+              width="506px"
+              height="620px"
+            />
+            :
+            <img
+              src="/img/wallet-draw.svg"
+              className="block max-[1400px]:hidden absolute left-[774px] "
+              alt="vault-wallet"
+              width="506px"
+              height="620px"
+            />
+          }
           <img
             src="/img/mobile-left.svg"
             className="md:hidden block absolute left-[0px] top-[114px]"
