@@ -2,17 +2,13 @@ import { WalletStatus, useWallet } from "@xpla/wallet-provider";
 import { CircularProgress, useMediaQuery } from "@mui/material";
 import BigNumber from "bignumber.js";
 import useStake from "../useQuery/useStake";
-import { copyToClipboard } from "./Balance";
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import { useCallback, useState } from "react";
-import clsx from "clsx";
 
 const Stake = () => {
   const { status, wallets } = useWallet();
   const isDesktop = useMediaQuery("(min-width:768px)");
 
   return (
-    <div className="w-full rounded-full drop-shadow bg-[#0080FF]/[.30] md:p-[30px] p-[8px] flex justify-center items-center md:mb-[0px] mb-[20px] ">
+    <div className="stroke-gradient w-full rounded-full drop-shadow bg-[#0080FF]/[.30] md:p-[30px] p-[8px] flex justify-center items-center md:mb-[0px] mb-[20px] ">
       <div className="w-full rounded-full flex md:px-[70px] px-[20px] md:py-[64px] py-[15px] flex-col flex-1 md:gap-[27px] bg-gradient-to-r to-[#0080FF] from-[#00AAFF] justify-center items-start">
         <div className="text-white font-pretendard md:text-[38px] font-semibold md:leading-[45px] text-[14px] leading-[14px] md:mb-[0px] mb-[6px]">
           Staked XPLA

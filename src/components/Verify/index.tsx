@@ -9,6 +9,7 @@ const Verify = () => {
     useWallet();
   return (
     <div className="flex flex-col justify-center bg-black items-center">
+
       {status === WalletStatus.WALLET_CONNECTED && wallets.length > 0 &&
         <>
           <div className="md:max-w-[1180px] md:w-full md:mt-[80px] mt-[25px] md:mb-[86px] mb-[24px] flex flex-col md:gap-[80px] justify-center items-center md:px-[0px] px-[20px] ">
