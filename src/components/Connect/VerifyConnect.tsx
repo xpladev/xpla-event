@@ -144,10 +144,10 @@ export default function Connect() {
             {truncate(wallets[0].xplaAddress, [5, 4])}
           </button>
           {showTooltip && (
-            <div className="font-pretendard absolute tooltip md:text-[28px] text-[24px] md:leading-[33px] leading-[28px] hover:cursor-default">
+            <div className="font-pretendard absolute verify-tooltip md:text-[28px] text-[24px] md:leading-[33px] leading-[28px] hover:cursor-default ">
               {truncate(wallets[0].xplaAddress, [5, 4])}
               <div
-                className="font-pretendard border-solid border-[1px] border-[#000080] text-[#000080] md:px-[28px] px-[4px] py-[8px] font-medium md:text-[22px] text-[19px] md:leading-[26px] leading-[22px] rounded-[8px] hover:cursor-pointer mt-[10px]"
+                className="font-pretendard text-[#7E56EF] bg-white md:px-[28px] px-[4px] py-[8px] font-semibold md:text-[22px] text-[19px] md:leading-[26px] leading-[22px] rounded-[8px] hover:cursor-pointer mt-[10px]"
                 onClick={() => {
                   setLoginLoading(false);
                   disconnect();

@@ -28,10 +28,10 @@ const NFT = () => {
       <div className="w-full rounded-full flex md:px-[70px] px-[20px] md:py-[64px] py-[15px] flex-col flex-1 md:gap-[27px] justify-center items-center">
         <div className="flex flex-col justify-center items-start w-full relative">
           <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[12px] leading-[12px] text-white text-left">
-            You need{!isDesktop && <br/>} at least 1 NFT<br/> to get Discord Role
+            You need{!isDesktop && <br />} at least 1 NFT<br /> to get Discord Role
           </span>
-          <span className="font-pretendard mt-[20px] text-[25px] font-medium leading-[42px] text-white">
-          · This Role will be revealed sooooon
+          <span className="font-pretendard md:mt-[20px] mt-[5px] md:text-[25px] text-[10px] font-medium md:leading-[42px] leading-[10px] text-white text-left">
+            · This Role will be revealed sooooon
           </span>
         </div>
       </div>

@@ -103,7 +103,7 @@ function AppVerify() {
 
                     if (a.data?.result) {
                       setError(undefined);
-                      setButtonText("Wallet Connected!")
+                      setButtonText("Back to Discord!")
                     } else {
                       setError(a.data?.reason || "");
                       throw new Error("Sign Error!");

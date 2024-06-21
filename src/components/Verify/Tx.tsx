@@ -30,7 +30,7 @@ const Tx = () => {
           <span className="font-pretendard md:text-[32px] md:leading-[38px] text-[12px] leading-[12px] text-white text-left">
             You need{!isDesktop && <br/>} at least 1 Tx<br/> to get Discord Role
           </span>
-          <span className="font-pretendard mt-[20px] text-[25px] font-medium leading-[42px] text-white">
+          <span className="font-pretendard md:mt-[20px] mt-[5px] md:text-[25px] text-[10px] font-medium md:leading-[42px] leading-[10px] text-white text-left">
           · This Role will be revealed sooooon
           </span>
         </div>
