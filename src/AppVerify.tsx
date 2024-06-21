@@ -35,54 +35,41 @@ function AppVerify() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="w-[1180px] flex justify-between font-sora-700 text-gradient md:text-[30px] text-[16px]">
-          <span>XPLA EVENT</span>
+        <div className="w-[1180px] flex justify-between font-sora-700 text-gradient-moreblue md:text-[30px] text-[16px]">
+          <span>XPLA Wallet Verification</span>
           <div className="flex justify-center items-center md:gap-[15px]">
             <img
-              src="/img/xlogo.svg"
+              src="/img/discordlogo.svg"
               width="30px"
               height="30px"
-              alt="xlogo"
+              alt="discordlogo"
               onClick={() => {
-                window.open("https://twitter.com/XPLA_Official");
-              }}
-              className="md:mr-[0px] mr-[12px] md:w-[30px] w-[22px] md:h-[30px] h-[22px] md:hover:cursor-pointer md:hover:opacity-80"
-            />
-            <img
-              src="/img/mediumlogo.svg"
-              width="30px"
-              height="30px"
-              alt="mediumlogo"
-              onClick={() => {
-                window.open("https://medium.com/xpla-ecosystem");
-              }}
-              className="md:mr-[0px] mr-[12px] md:w-[30px] w-[22px] md:h-[30px] h-[22px] md:hover:cursor-pointer md:hover:opacity-80"
-            />
-            <img
-              src="/img/telelogo.svg"
-              width="30px"
-              height="30px"
-              alt="telelogo"
-              onClick={() => {
-                window.open("https://t.me/Official_XPLA");
+                window.open("https://discord.gg/xpla");
               }}
               className="md:w-[30px] w-[22px] md:h-[30px] h-[22px] md:hover:cursor-pointer md:hover:opacity-80"
             />
           </div>
         </div>
       </header>
-      <div className={clsx("bg-black bg-star flex justify-center items-center md:px-[20px]", status === WalletStatus.WALLET_CONNECTED && wallets.length > 0 ? "md:h-[620px] h-[330px]" : "md:h-[calc(100vh-280px)] h-[calc(100vh-160px)]")}>
+      <div className={clsx("relative bg-black flex justify-center items-center md:px-[20px] md:h-[1000px] h-[330px]", (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) ? "" : "overflow-hidden" )}>
+        <img
+          src="/img/bluelemon.svg"
+          alt="blue-bg"
+          onClick={() => {
+            window.open("https://discord.com/invite/xpla");
+          }}
+          className={clsx("absolute top-0 right-0")}
+        />
         <div className="w-[1180px] h-full flex flex-col md:gap-[80px] justify-center md:items-start items-center relative">
           <div className="flex flex-col md:gap-[15px] justify-start font-sora-700  md:text-start text-center md:mb-[0px] mb-[20px]">
-            <div className="text-gradient">
+            <div className="text-gradient-moreblue">
               <span className="md:text-[65px] text-[36px] md:leading-[82px] leading-[40px]">
-
                 Verify your {isMobile && <br />} XPLA wallet!
               </span>
             </div>
-            <span className="md:text-[30px] md:mt-[0px] mt-[9px] md:font-semibold md:leading-[36px] text-[13px] font-medium leading-[16px] text-white">
-              Stay Tuned to XPLA Community for
-              {isMobile && <br />} Upcoming Events.
+            <span className="md:text-[30px] md:mt-[0px] mt-[9px] md:leading-[36px] text-[13px] font-medium leading-[16px] text-white">
+              Check Your Eligibility 
+              {isMobile && <br />} for the Discord Role
             </span>
           </div>
           <div className="flex md:flex-row flex-col justify-start md:gap-[20px] text-white font-sora-500 md:text-[30px] text-[20px]">
@@ -142,15 +129,15 @@ function AppVerify() {
           {status === WalletStatus.WALLET_CONNECTED && wallets.length > 0
             ?
             <img
-              src="/img/wallet.svg"
-              className="block max-[1400px]:hidden absolute left-[774px] bottom-[0px]"
+              src="/img/newwallet.svg"
+              className="block max-[1400px]:hidden absolute left-[774px] "
               alt="vault-wallet"
               width="506px"
               height="620px"
             />
             :
             <img
-              src="/img/wallet-draw.svg"
+              src="/img/newwallet.svg"
               className="block max-[1400px]:hidden absolute left-[774px] "
               alt="vault-wallet"
               width="506px"
