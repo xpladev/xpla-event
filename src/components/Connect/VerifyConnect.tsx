@@ -147,7 +147,7 @@ export default function Connect() {
             <div className="font-pretendard absolute verify-tooltip md:text-[28px] text-[24px] md:leading-[33px] leading-[28px] hover:cursor-default ">
               {truncate(wallets[0].xplaAddress, [5, 4])}
               <div
-                className="font-pretendard text-[#7E56EF] bg-white md:px-[28px] px-[4px] py-[8px] font-semibold md:text-[22px] text-[19px] md:leading-[26px] leading-[22px] rounded-[8px] hover:cursor-pointer mt-[10px]"
+                className="font-pretendard text-[#7E56EF] bg-white md:px-[28px] px-[4px] py-[8px] font-semibold md:text-[22px] text-center text-[19px] md:leading-[26px] leading-[22px] rounded-[8px] hover:cursor-pointer mt-[10px]"
                 onClick={() => {
                   setLoginLoading(false);
                   disconnect();

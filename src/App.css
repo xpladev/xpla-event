@@ -183,7 +183,7 @@
 
 
 .verify-tooltip {
-  background-color: rgba(255, 255, 255, 0.50);
+  background-color: rgba(126, 86, 239, 0.50);
   color: white;
   text-align: left;
   min-width: 270px;
@@ -203,7 +203,7 @@
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   content: '';
-  fill: rgba(255, 255, 255, 0.50);
+  fill: rgba(126, 86, 239, 0.50);
 }
 
 .verify-tooltip:before {
@@ -217,7 +217,7 @@
 
   left: 50%;
   transform: translate(-50%, 0);
-  background-color: rgba(142, 142, 142, 1);
+  background-color: rgba(126, 86, 239, 0.5);
   top: -7px;
   -webkit-clip-path: polygon(0 100%, 100% 100%, 50% 0);
   clip-path: polygon(0 100%, 100% 100%, 50% 0);
@@ -237,7 +237,7 @@
     line-height: normal;
     position: absolute;
     z-index: 1;
-    top: calc(100% + 8px);
+    top: calc(100% + 30px);
     transform: translate(-50%, 0);
     left: 50%;
     -webkit-animation: fadeIn 0.2s ease-in-out;
@@ -252,13 +252,13 @@
 
     content: '';
 
-    width: 20px;
-    height: 15px;
+    width: 50px;
+    height: 30px;
 
     left: 50%;
     transform: translate(-50%, 0);
     background-color: #7E56EF;
-    top: -8px;
+    top: -16px;
     -webkit-clip-path: polygon(0 100%, 100% 100%, 50% 0);
     clip-path: polygon(0 100%, 100% 100%, 50% 0);
   }
