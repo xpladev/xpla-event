@@ -18,7 +18,7 @@ const ModalVerify = ({ setError, setButtonText }: { setError: React.Dispatch<Rea
   return (
     <MuiModal open={modalOpen} onClose={() => {setModalOpen(false)}}>
       <div
-        className=" md:w-[680px] w-[320px] md:h-[438px] h-[299px] modal-bg"
+        className=" md:w-[680px] w-[320px] md:h-[438px] h-[299px] modal-bg md:px-0 px-[10px]"
         style={{
           position: "absolute",
           top: "50%",
@@ -35,7 +35,7 @@ const ModalVerify = ({ setError, setButtonText }: { setError: React.Dispatch<Rea
       >
 
         <div className="text-center flex justify-center items-center flex-col ">
-          <span className="mb-[45px] text-white font-sora-700 text-[48px] leading-[59px] ">
+          <span className="md:mb-[45px] mb-[20px] text-white font-sora-700 md:text-[48px] md:leading-[59px] text-[25px] ">
             Click the button <br />
             to sign the message <br />
             and verify your account.
@@ -82,7 +82,7 @@ const ModalVerify = ({ setError, setButtonText }: { setError: React.Dispatch<Rea
                   setModalOpen(false);
                 }
               }}
-              className="font-sora-500 text-[20px] text-white leading-[25px] flex justify-center items-center border-solid border-[1px] border-white px-[121px] py-[10px] rounded-[100px] hover:cursor-pointer "
+              className="font-sora-500 text-[20px] text-white leading-[25px] flex justify-center items-center border-solid border-[1px] border-white md:w-[380px] w-full py-[10px] rounded-[100px] hover:cursor-pointer "
             >
               Sign Message
             </button>
