@@ -8,6 +8,7 @@ import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import VerifyConnect from "./components/Connect/VerifyConnect";
 import clsx from "clsx";
+import ModalVerify from "./components/ModalVerify";
 
 function AppVerify() {
   const isMobile = useMediaQuery("(max-width:768px)");
@@ -51,7 +52,7 @@ function AppVerify() {
           </div>
         </div>
       </header>
-      <div className={clsx("relative bg-black flex justify-center items-center md:px-[20px] md:h-[1000px] h-[330px]", (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) ? "" : "overflow-hidden" )}>
+      <div className={clsx("relative bg-black flex justify-center items-center md:px-[20px] ", (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) ? "md:h-[1000px] h-[330px]" : "md:h-[calc(100vh-280px)] h-[calc(100vh-160px)] overflow-hidden" )}>
         <img
           src="/img/bluelemon.svg"
           alt="blue-bg"
@@ -144,24 +145,11 @@ function AppVerify() {
               height="620px"
             />
           }
-          <img
-            src="/img/mobile-left.svg"
-            className="md:hidden block absolute left-[0px] top-[114px]"
-            alt="vault-wallet"
-            width="78px"
-            height="80px"
-          />
-          <img
-            src="/img/mobile-right.svg"
-            className="md:hidden block absolute right-[0px] bottom-[0px]"
-            alt="vault-wallet"
-            width="100px"
-            height="102px"
-          />
         </div>
       </div>
       <Verify />
       <Modal />
+      <ModalVerify setError={setError} setButtonText={setButtonText}/>
     </div>
   );
 }
