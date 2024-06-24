@@ -16,7 +16,7 @@ const ModalVerify = ({ setError, setButtonText }: { setError: React.Dispatch<Rea
   }
 
   return (
-    <MuiModal open={modalOpen}>
+    <MuiModal open={modalOpen} onClose={() => {setModalOpen(false)}}>
       <div
         className=" md:w-[680px] w-[320px] md:h-[438px] h-[299px] modal-bg"
         style={{
