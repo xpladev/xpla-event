@@ -52,7 +52,7 @@ function AppVerify() {
           </div>
         </div>
       </header>
-      <div className={clsx("relative bg-black flex justify-center items-center md:px-[20px] ", (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) ? "md:h-[1000px] h-[330px]" : "md:h-[calc(100vh-280px)] h-[calc(100vh-160px)] overflow-hidden" )}>
+      <div className={clsx("relative bg-black flex justify-center items-center md:px-[20px] ", (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) ? "md:h-[1000px] h-[330px]" : "md:h-[calc(100vh-280px)] h-[calc(100vh-160px)] overflow-hidden")}>
         <img
           src="/img/bluelemon.svg"
           alt="blue-bg"
@@ -69,7 +69,7 @@ function AppVerify() {
               </span>
             </div>
             <span className="md:text-[30px] md:mt-[0px] mt-[9px] md:leading-[36px] text-[13px] font-medium leading-[16px] text-white">
-              Check Your Eligibility 
+              Check Your Eligibility
               {isMobile && <br />} for the Discord Role
             </span>
           </div>
@@ -77,6 +77,7 @@ function AppVerify() {
             <VerifyConnect />
             {status === WalletStatus.WALLET_CONNECTED && wallets.length > 0 && connectedWallet &&
               <button
+                disabled={buttonText === "Back to Discord!"}
                 onClick={async () => {
                   try {
                     const queryJson = JSON.parse(Buffer.from(queryParam, 'base64').toString());
@@ -116,7 +117,7 @@ function AppVerify() {
                     setButtonText("Please Refresh and Retry!")
                   }
                 }}
-                className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] hover:cursor-pointer md:mb-[0px] mb-[20px]"
+                className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] md:mb-[0px] mb-[20px]"
               >
                 {buttonText}
                 {
@@ -149,7 +150,7 @@ function AppVerify() {
       </div>
       <Verify />
       <Modal />
-      <ModalVerify setError={setError} setButtonText={setButtonText}/>
+      <ModalVerify setError={setError} setButtonText={setButtonText} />
     </div>
   );
 }
