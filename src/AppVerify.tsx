@@ -52,7 +52,7 @@ function AppVerify() {
           </div>
         </div>
       </header>
-      <div className={clsx("relative bg-[#000503] flex justify-center items-center md:px-[20px] overflow-visible", (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) ? "md:h-[1000px] h-[330px] " : "md:h-[calc(100vh-280px)] h-[calc(100vh-160px)] ")}>
+      <div className={clsx("relative bg-[#000503] flex justify-center items-center md:px-[20px] ", (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) ? "md:h-[1000px] h-[330px] overflow-visible" : "md:h-[calc(100vh-280px)] h-[calc(100vh-160px)] overflow-hidden")}>
         <div className="absolute w-full max-w-[1919px] md:h-[1800px] h-[calc(100vh-160px)] top-0 right-0 bg-bluelemon " />
         <div className="w-[1180px] h-full flex flex-col md:gap-[80px] justify-center md:items-start items-center relative">
           <div className="flex flex-col md:gap-[15px] justify-start font-sora-700  md:text-start text-center md:mb-[0px] mb-[20px]">
