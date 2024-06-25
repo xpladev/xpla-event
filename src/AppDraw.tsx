@@ -100,7 +100,7 @@ function AppDraw() {
                       throw new Error("Time Over!");
                     }
 
-                    const signMessages = `XPLA_Bot은 여러분의 주소 소유권을 증명하기 위해, 이 메시지를 서명하기를 요청합니다. 이것은 읽기 전용 접근이고, 어떤 블록체인 트랜잭션도 만들지 않으며, 수수료도 부과하지 않습니다.\n\n- User : ${username} | ${userId}\n- Timestamp : ${timestamp}`;
+                    const signMessages = `XPLA_Bot asks you to sign this message for the purpose of verifying your account ownership. This is READ-ONLY access and will NOT trigger any blockchain transactions or incur any fees.\n\n- User : ${username} | ${userId}\n- Timestamp : ${timestamp}`;
                     const result = await connectedWallet.signBytes(Buffer.from(signMessages));
                     
                     const a = await axios.post(`${process.env.REACT_APP_ENV === "development" ? "http://localhost:5641" : "https://cube-hive.xpla.dev/discord"}/drawresult`, {

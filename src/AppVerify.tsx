@@ -52,14 +52,11 @@ function AppVerify() {
           </div>
         </div>
       </header>
-      <div className={clsx("relative bg-black flex justify-center items-center md:px-[20px] ", (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) ? "md:h-[1000px] h-[330px]" : "md:h-[calc(100vh-280px)] h-[calc(100vh-160px)] overflow-hidden")}>
+      <div className={clsx("relative bg-[#000503] flex justify-center items-center md:px-[20px] ", (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) ? "md:h-[1000px] h-[330px]" : "md:h-[calc(100vh-280px)] h-[calc(100vh-160px)] overflow-hidden")}>
         <img
           src="/img/bluelemon.svg"
           alt="blue-bg"
-          onClick={() => {
-            window.open("https://discord.com/invite/xpla");
-          }}
-          className={clsx("absolute top-0 right-0")}
+          className={clsx("absolute top-0 right-0 ")}
         />
         <div className="w-[1180px] h-full flex flex-col md:gap-[80px] justify-center md:items-start items-center relative">
           <div className="flex flex-col md:gap-[15px] justify-start font-sora-700  md:text-start text-center md:mb-[0px] mb-[20px]">
@@ -76,56 +73,62 @@ function AppVerify() {
           <div className="flex md:flex-row flex-col justify-start md:gap-[20px] text-white font-sora-500 md:text-[30px] text-[20px]">
             <VerifyConnect />
             {status === WalletStatus.WALLET_CONNECTED && wallets.length > 0 && connectedWallet &&
-              <button
-                disabled={buttonText === "Back to Discord!"}
-                onClick={async () => {
-                  try {
-                    const queryJson = JSON.parse(Buffer.from(queryParam, 'base64').toString());
-                    const { userId, interactionToken, timestamp, username } = queryJson;
-                    const startTime = new Date(timestamp);
-                    const now = new Date();
-                    const diffMin = (now.getTime() - startTime.getTime()) / (60 * 1000);
+              (buttonText !== "Back to Discord!" ? <button
+              onClick={async () => {
+                try {
+                  const queryJson = JSON.parse(Buffer.from(queryParam, 'base64').toString());
+                  const { userId, interactionToken, timestamp, username } = queryJson;
+                  const startTime = new Date(timestamp);
+                  const now = new Date();
+                  const diffMin = (now.getTime() - startTime.getTime()) / (60 * 1000);
 
-                    if (diffMin > 5) {
-                      setError("Time over!")
-                      throw new Error("Time Over!");
-                    }
-
-                    const signMessages = `XPLA_Bot은 여러분의 주소 소유권을 증명하기 위해, 이 메시지를 서명하기를 요청합니다. 이것은 읽기 전용 접근이고, 어떤 블록체인 트랜잭션도 만들지 않으며, 수수료도 부과하지 않습니다.\n\n- User : ${username} | ${userId}\n- Timestamp : ${timestamp}`;
-                    const result = await connectedWallet.signBytes(Buffer.from(signMessages));
-
-                    const a = await axios.post(`${process.env.REACT_APP_ENV === "development" ? "http://localhost:5641" : "https://cube-hive.xpla.dev/discord"}/signresult`, {
-                      signbytes: result,
-                      address: connectedWallet.xplaAddress,
-                      userId,
-                      interactionToken,
-                      username,
-                      timestamp,
-                    });
-
-                    if (a.data?.result) {
-                      setError(undefined);
-                      setButtonText("Back to Discord!")
-                    } else {
-                      setError(a.data?.reason || "");
-                      throw new Error("Sign Error!");
-                    }
-
-                  } catch (e) {
-                    console.log(e);
-                    // Please
-                    setButtonText("Please Refresh and Retry!")
+                  if (diffMin > 5) {
+                    setError("Time over!")
+                    throw new Error("Time Over!");
                   }
-                }}
-                className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] md:mb-[0px] mb-[20px]"
-              >
-                {buttonText}
-                {
-                  error && <span className="absolute text-red-600 md:left-0 text-[20px] bottom-[-40px]">
-                    {error}
-                  </span>
+
+                  const signMessages = `XPLA_Bot asks you to sign this message for the purpose of verifying your account ownership. This is READ-ONLY access and will NOT trigger any blockchain transactions or incur any fees.\n\n- User : ${username} | ${userId}\n- Timestamp : ${timestamp}`;
+                  const result = await connectedWallet.signBytes(Buffer.from(signMessages));
+
+                  const a = await axios.post(`${process.env.REACT_APP_ENV === "development" ? "http://localhost:5641" : "https://cube-hive.xpla.dev/discord"}/signresult`, {
+                    signbytes: result,
+                    address: connectedWallet.xplaAddress,
+                    userId,
+                    interactionToken,
+                    username,
+                    timestamp,
+                  });
+
+                  if (a.data?.result) {
+                    setError(undefined);
+                    setButtonText("Back to Discord!")
+                  } else {
+                    setError(a.data?.reason || "");
+                    throw new Error("Sign Error!");
+                  }
+
+                } catch (e) {
+                  console.log(e);
+                  // Please
+                  setButtonText("Please Refresh and Retry!")
                 }
-              </button>
+              }}
+              className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] md:mb-[0px] mb-[20px]"
+            >
+              {buttonText}
+              {
+                error && <span className="absolute text-red-600 md:left-0 text-[20px] bottom-[-40px]">
+                  {error}
+                </span>
+              }
+            </button> :
+                        <a
+                        rel="noopener noreferrer"
+                        href="https://discord.gg/JmDNaaRC"
+                        className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] md:mb-[0px] mb-[20px]"
+                      >
+                        {buttonText}
+                      </a>)
             }
           </div>
           {status === WalletStatus.WALLET_CONNECTED && wallets.length > 0
