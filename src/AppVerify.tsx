@@ -52,12 +52,8 @@ function AppVerify() {
           </div>
         </div>
       </header>
-      <div className={clsx("relative bg-[#000503] flex justify-center items-center md:px-[20px] ", (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) ? "md:h-[1000px] h-[330px]" : "md:h-[calc(100vh-280px)] h-[calc(100vh-160px)] overflow-hidden")}>
-        <img
-          src="/img/bluelemon.svg"
-          alt="blue-bg"
-          className={clsx("absolute top-0 right-0 ")}
-        />
+      <div className={clsx("relative bg-[#000503] flex justify-center items-center md:px-[20px] overflow-visible", (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) ? "md:h-[1000px] h-[330px] " : "md:h-[calc(100vh-280px)] h-[calc(100vh-160px)] ")}>
+        <div className="absolute w-full max-w-[1919px] md:h-[1800px] h-[calc(100vh-160px)] top-0 right-0 bg-bluelemon " />
         <div className="w-[1180px] h-full flex flex-col md:gap-[80px] justify-center md:items-start items-center relative">
           <div className="flex flex-col md:gap-[15px] justify-start font-sora-700  md:text-start text-center md:mb-[0px] mb-[20px]">
             <div className="text-gradient-moreblue">
@@ -74,61 +70,61 @@ function AppVerify() {
             <VerifyConnect />
             {status === WalletStatus.WALLET_CONNECTED && wallets.length > 0 && connectedWallet &&
               (buttonText !== "Back to Discord!" ? <button
-              onClick={async () => {
-                try {
-                  const queryJson = JSON.parse(Buffer.from(queryParam, 'base64').toString());
-                  const { userId, interactionToken, timestamp, username } = queryJson;
-                  const startTime = new Date(timestamp);
-                  const now = new Date();
-                  const diffMin = (now.getTime() - startTime.getTime()) / (60 * 1000);
+                onClick={async () => {
+                  try {
+                    const queryJson = JSON.parse(Buffer.from(queryParam, 'base64').toString());
+                    const { userId, interactionToken, timestamp, username } = queryJson;
+                    const startTime = new Date(timestamp);
+                    const now = new Date();
+                    const diffMin = (now.getTime() - startTime.getTime()) / (60 * 1000);
 
-                  if (diffMin > 5) {
-                    setError("Time over!")
-                    throw new Error("Time Over!");
+                    if (diffMin > 5) {
+                      setError("Time over!")
+                      throw new Error("Time Over!");
+                    }
+
+                    const signMessages = `XPLA_Bot asks you to sign this message for the purpose of verifying your account ownership. This is READ-ONLY access and will NOT trigger any blockchain transactions or incur any fees.\n\n- User : ${username} | ${userId}\n- Timestamp : ${timestamp}`;
+                    const result = await connectedWallet.signBytes(Buffer.from(signMessages));
+
+                    const a = await axios.post(`${process.env.REACT_APP_ENV === "development" ? "http://localhost:5641" : "https://cube-hive.xpla.dev/discord"}/signresult`, {
+                      signbytes: result,
+                      address: connectedWallet.xplaAddress,
+                      userId,
+                      interactionToken,
+                      username,
+                      timestamp,
+                    });
+
+                    if (a.data?.result) {
+                      setError(undefined);
+                      setButtonText("Back to Discord!")
+                    } else {
+                      setError(a.data?.reason || "");
+                      throw new Error("Sign Error!");
+                    }
+
+                  } catch (e) {
+                    console.log(e);
+                    // Please
+                    setButtonText("Please Refresh and Retry!")
                   }
-
-                  const signMessages = `XPLA_Bot asks you to sign this message for the purpose of verifying your account ownership. This is READ-ONLY access and will NOT trigger any blockchain transactions or incur any fees.\n\n- User : ${username} | ${userId}\n- Timestamp : ${timestamp}`;
-                  const result = await connectedWallet.signBytes(Buffer.from(signMessages));
-
-                  const a = await axios.post(`${process.env.REACT_APP_ENV === "development" ? "http://localhost:5641" : "https://cube-hive.xpla.dev/discord"}/signresult`, {
-                    signbytes: result,
-                    address: connectedWallet.xplaAddress,
-                    userId,
-                    interactionToken,
-                    username,
-                    timestamp,
-                  });
-
-                  if (a.data?.result) {
-                    setError(undefined);
-                    setButtonText("Back to Discord!")
-                  } else {
-                    setError(a.data?.reason || "");
-                    throw new Error("Sign Error!");
-                  }
-
-                } catch (e) {
-                  console.log(e);
-                  // Please
-                  setButtonText("Please Refresh and Retry!")
+                }}
+                className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] md:mb-[0px] mb-[20px]"
+              >
+                {buttonText}
+                {
+                  error && <span className="absolute text-red-600 md:left-0 text-[20px] bottom-[-40px]">
+                    {error}
+                  </span>
                 }
-              }}
-              className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] md:mb-[0px] mb-[20px]"
-            >
-              {buttonText}
-              {
-                error && <span className="absolute text-red-600 md:left-0 text-[20px] bottom-[-40px]">
-                  {error}
-                </span>
-              }
-            </button> :
-                        <a
-                        rel="noopener noreferrer"
-                        href="https://discord.gg/JmDNaaRC"
-                        className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] md:mb-[0px] mb-[20px]"
-                      >
-                        {buttonText}
-                      </a>)
+              </button> :
+                <a
+                  rel="noopener noreferrer"
+                  href="https://discord.gg/JmDNaaRC"
+                  className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] md:mb-[0px] mb-[20px]"
+                >
+                  {buttonText}
+                </a>)
             }
           </div>
           {status === WalletStatus.WALLET_CONNECTED && wallets.length > 0
