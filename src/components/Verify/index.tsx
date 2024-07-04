@@ -23,7 +23,6 @@ const Verify = () => {
         <>
           <div className="md:max-w-[1180px] md:w-full md:mt-[80px] mt-[25px] md:mb-[86px] mb-[24px] flex flex-col md:gap-[80px] justify-center items-center md:px-[0px] px-[20px] ">
             <Balance />
-            <NFT />
             <Stake />
             <Tx />
           </div>
