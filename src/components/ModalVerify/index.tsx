@@ -78,7 +78,7 @@ const ModalVerify = ({ setError, setButtonText }: { setError: React.Dispatch<Rea
 
                 } catch (e) {
                   console.log(e);
-                  setButtonText("Please Refresh and Retry!");
+                  setButtonText("Verify again on Discord");
                   setModalOpen(false);
                 }
               }}

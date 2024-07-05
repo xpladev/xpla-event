@@ -106,7 +106,7 @@ function AppVerify() {
                   } catch (e) {
                     console.log(e);
                     // Please
-                    setButtonText("Verify again on Discord.")
+                    setButtonText("Verify again on Discord")
                   }
                 }}
                 className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] md:mb-[0px] mb-[20px]"
