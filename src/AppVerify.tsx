@@ -69,7 +69,7 @@ function AppVerify() {
           <div className="flex md:flex-row flex-col justify-start md:gap-[20px] text-white font-sora-500 md:text-[30px] text-[20px]">
             <VerifyConnect />
             {status === WalletStatus.WALLET_CONNECTED && wallets.length > 0 && connectedWallet &&
-              (buttonText !== "Back to Discord!" ? <button
+              ((buttonText === "Sign Message") ? <button
                 onClick={async () => {
                   try {
                     const queryJson = JSON.parse(Buffer.from(queryParam, 'base64').toString());
