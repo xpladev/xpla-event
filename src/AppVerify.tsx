@@ -99,24 +99,23 @@ function AppVerify() {
                       setError(undefined);
                       setButtonText("Back to Discord!")
                     } else {
-                      setError(a.data?.reason || "");
-                      throw new Error("Sign Error!");
+                    //  console.log(a.data?.reason)
+                      throw new Error(a.data?.reason || "Sign Error!");
                     }
 
                   } catch (e) {
-                    console.log(e);
-                    // Please
+                    // console.log(e);
+                    if (e instanceof Error) {
+                      // 에러 객체에서 메시지를 출력
+                      setError(e.message);
+                    }
                     setButtonText("Verify again on Discord")
                   }
                 }}
                 className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] md:mb-[0px] mb-[20px]"
               >
                 {buttonText}
-                {
-                  error && <span className="absolute text-red-600 md:left-0 text-[20px] bottom-[-40px]">
-                    {error}
-                  </span>
-                }
+
               </button> :
                 <a
                   rel="noopener noreferrer"
@@ -124,6 +123,11 @@ function AppVerify() {
                   className="relative flex md:leading-[38px] leading-[25px] justify-center items-center border-solid border-[1px] border-white px-[45px] py-[10px] rounded-[100px] md:mb-[0px] mb-[20px]"
                 >
                   {buttonText}
+                  {
+                    error && <span className="absolute text-red-600 md:left-0 text-[20px] bottom-[-40px]">
+                      {error}
+                    </span>
+                  }
                 </a>)
             }
           </div>

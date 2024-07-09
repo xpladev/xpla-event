@@ -72,12 +72,15 @@ const ModalVerify = ({ setError, setButtonText }: { setError: React.Dispatch<Rea
                     setButtonText("Back to Discord!");
                     setModalOpen(false);
                   } else {
-                    setError(a.data?.reason || "");
-                    throw new Error("Sign Error!");
+                    throw new Error(a.data?.reason || "Sign Error!");
                   }
 
                 } catch (e) {
-                  console.log(e);
+                  // console.log(e);
+                  if (e instanceof Error) {
+                    // 에러 객체에서 메시지를 출력
+                    setError(e.message);
+                  }
                   setButtonText("Verify again on Discord");
                   setModalOpen(false);
                 }
