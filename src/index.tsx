@@ -31,8 +31,8 @@ getChainOptions().then((chainOptions) => {
             <Route path="/" element={<App />} />
             <Route path="/verify" element={<AppVerify />} />
             <Route path="/draw" element={<AppDraw />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/cookie" element={<Cookie />} />
+            <Route path="/privacy-policy" element={<Privacy />} />
+            <Route path="/cookie-policy" element={<Cookie />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>

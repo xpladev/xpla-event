@@ -1,5 +1,4 @@
 import Balance from "./Balance";
-import NFT from "./NFT";
 import Stake from "./Stake";
 import Tx from "./Tx";
 
@@ -8,7 +7,6 @@ const Main = () => {
     <div className="flex flex-col justify-center bg-white items-center">
       <div className="md:max-w-[1180px] md:w-full md:mt-[80px] mt-[25px] md:mb-[86px] mb-[24px] flex flex-col md:gap-[80px] justify-center items-center md:px-[0px] px-[20px] ">
         <Balance />
-        <NFT />
         <Stake />
         <Tx />
       </div>
@@ -34,7 +32,7 @@ const Main = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://assets.xpla.io/pdf/PRIVACY_POLICY.pdf"
+              href="/privacy-policy"
               className="md:hover:cursor-pointer md:hover:opacity-80 md:mr-[0px] mr-[20px]"
             >
               Privacy Policy
@@ -43,7 +41,7 @@ const Main = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://assets.xpla.io/pdf/COOKIE_POLICY.pdf"
+              href="/cookie-policy"
               className="md:hover:cursor-pointer md:hover:opacity-80 md:mr-[0px] mr-[20px]"
             >
               Cookie Policy

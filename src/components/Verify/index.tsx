@@ -50,7 +50,7 @@ const Verify = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://assets.xpla.io/pdf/PRIVACY_POLICY.pdf"
+              href="/privacy-policy"
               className="md:hover:cursor-pointer md:hover:opacity-80 md:mr-[0px] mr-[20px]"
             >
               Privacy Policy
@@ -59,7 +59,7 @@ const Verify = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://assets.xpla.io/pdf/COOKIE_POLICY.pdf"
+              href="/cookie-policy"
               className="md:hover:cursor-pointer md:hover:opacity-80 md:mr-[0px] mr-[20px]"
             >
               Cookie Policy

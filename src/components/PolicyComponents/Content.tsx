@@ -43,16 +43,15 @@ const Content = ({ title,
                 policiesData[index].article.filter((data) => data.index ).map((data) => <div
                     className="text-[18px] text-[#004FFF] leading-[26px] font-normal mt-[12px] "
                 >
-                    <span >{`${data.index}. `}</span>
                     <span
                         onClick={() => onMoveToContentElement(data.index!)}
-                        className="hover:underline hover:cursor-pointer">{`${data[language].title}`}</span>
+                        className="hover:underline hover:cursor-pointer">{`${data[language]?.title}`}</span>
 
                 </div>)
             }
         </div>
         {
-            policiesData[index].article.map((data) => <div className={data[language].noborder ? "mb-[15px]" : "mb-[39px]"}
+            policiesData[index].article.map((data) => <div className={data[language]?.noborder ? "mb-[15px]" : "mb-[39px]"}
                 ref={(el) => {
                     if (data.index) {
                         (contentRefs.current[data.index] = el)
@@ -61,25 +60,26 @@ const Content = ({ title,
             >
 
                 {
-                    data[language].title &&
+                    data[language]?.title &&
                     <div className="mb-[18px] font-bold text-[26px] leading-[31px]">
-                        {data[language].title}
+                        {data[language]?.title}
                     </div>
                 }
                 {
-                    data[language].content &&
-                    <div className="font-normal text-[18px] leading-[26px] text-[#4D5358]">
-                        {data[language].content}
+                    data[language]?.content &&
+                        data[language]?.contentInnerhtml ? <div className="font-normal text-[18px] leading-[26px] text-[#4D5358] whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: data[language]?.content! }}>
+                    </div> : <div className="font-normal text-[18px] leading-[26px] text-[#4D5358] whitespace-pre-wrap">
+                        {data[language]?.content}
                     </div>
                 }
                 {
-                    data[language].table &&
-                    <Table tabledata={data[language].table} />
+                    data[language]?.table &&
+                    <Table tabledata={data[language]?.table} />
                 }
-                {
-                    !(data[language].noborder) &&
-                    <div className="mt-[40px] border bordre-[1px] border-t-0 border-black" />
-                }
+                {/* {
+                    !(data[language]?.noborder) &&
+                    <div className="mt-[40px] border border-[1px] border-t-0 border-black" />
+                } */}
             </div>)
         }
         <div>
@@ -121,7 +121,7 @@ const Table = ({ tabledata }: { tabledata: TableData[][] | undefined }) => {
         </div>
         {
             tabledata.filter((d, i) => i > 0).map((data) => {
-                return <div className="bg-white flex items-center min-w-[1080px]">
+                return <div className="bg-white flex items-center min-w-[1080px] relative">
                     {
                         data.map((contentData) => {
                             return <div style={contentData.style}>

@@ -7,12 +7,14 @@ export interface PoliciesData {
             noborder?: boolean;
             title?: string;
             content?: string;
+            contentInnerhtml?: boolean; 
             table?: TableData[][];
         },
-        korean: {
+        korean?: {
             noborder?: boolean;
             title?: string;
             content?: string;
+            contentInnerhtml?: boolean; 
             table?: TableData[][];
         }
     }[]
