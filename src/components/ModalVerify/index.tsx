@@ -45,7 +45,7 @@ const ModalVerify = ({ setError, setButtonText }: { setError: React.Dispatch<Rea
               onClick={async () => {
                 try {
                   const queryJson = JSON.parse(Buffer.from(queryParam, 'base64').toString());
-                  const { userId, interactionToken, timestamp, username } = queryJson;
+                  const { userId, interactionToken, timestamp } = queryJson;
                   const startTime = new Date(timestamp);
                   const now = new Date();
                   const diffMin = (now.getTime() - startTime.getTime()) / (60 * 1000);
@@ -55,7 +55,7 @@ const ModalVerify = ({ setError, setButtonText }: { setError: React.Dispatch<Rea
                     throw new Error("Time Over!");
                   }
 
-                  const signMessages = `XPLA_Bot asks you to sign this message for the purpose of verifying your account ownership. This is READ-ONLY access and will NOT trigger any blockchain transactions or incur any fees.\n\n- User : ${username} | ${userId}\n- Timestamp : ${timestamp}`;
+                  const signMessages = `XPLA_Bot asks you to sign this message for the purpose of verifying your account ownership. This is READ-ONLY access and will NOT trigger any blockchain transactions or incur any fees.\n\n- User : ${userId}\n- Timestamp : ${timestamp}`;
                   const result = await connectedWallet.signBytes(Buffer.from(signMessages));
 
                   const a = await axios.post(`${process.env.REACT_APP_ENV === "development" ? "http://localhost:5641" : "https://dimension-discord.xpla.dev"}/signresult`, {
@@ -63,7 +63,6 @@ const ModalVerify = ({ setError, setButtonText }: { setError: React.Dispatch<Rea
                     address: connectedWallet.xplaAddress,
                     userId,
                     interactionToken,
-                    username,
                     timestamp,
                   });
 
