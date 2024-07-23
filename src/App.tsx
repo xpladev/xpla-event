@@ -2,17 +2,14 @@ import { useMediaQuery } from "@mui/material";
 import "./App.css";
 import Modal from "./components/Modal";
 import EventMain from "./components/EventMain";
-import { WalletStatus, useConnectedWallet, useWallet } from "@xpla/wallet-provider";
-import { useEffect, useState } from "react";
+import { WalletStatus, useWallet } from "@xpla/wallet-provider";
+import { useEffect } from "react";
 import VerifyConnect from "./components/Connect/VerifyConnect";
 import clsx from "clsx";
 
 function App() {
   const isMobile = useMediaQuery("(max-width:768px)");
   const { status, wallets, refetchStates } = useWallet();
-  const connectedWallet = useConnectedWallet();
-  const [buttonText, setButtonText] = useState<string>("Sign Message");
-  const [error, setError] = useState<string | undefined>();
 
   useEffect(() => {
     if (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) {
