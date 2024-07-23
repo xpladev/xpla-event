@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import AppVerify from './AppVerify';
+import AppDraw from './AppDraw';
 import reportWebVitals from './reportWebVitals';
 import {
   getChainOptions,
@@ -24,11 +26,13 @@ getChainOptions().then((chainOptions) => {
   root.render(
     <WalletProvider {...chainOptions}>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+        <BrowserRouter basename="/">
           <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/cookie" element={<Cookie />} />
+            <Route path="/verify" element={<AppVerify />} />
+            <Route path="/draw" element={<AppDraw />} />
+            <Route path="/privacy-policy" element={<Privacy />} />
+            <Route path="/cookie-policy" element={<Cookie />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>

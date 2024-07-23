@@ -31,32 +31,17 @@ const Modal = () => {
         <div className="md:mb-[22px] mb-[12px] md:py-[20px] py-[18px] bg-white md:text-[12px] text-[8px] md:leading-[15px] leading-[10ox] rounded-[15px] ">
           <div className="beauty-scroll overflow-y-scroll md:h-[180px] h-[84px] md:px-[35px] px-[19px]">
             <span className="font-inter-600 ">
-              [Age Requirement] <br />
-            </span>
-            <span className="font-inter-400 ">
-              Participants in the XPLA Event must be at least 16 years old.
-              Users must agree that they have reviewed and understood the age
-              restriction policy of the XPLA Event to participate.
-              <br />
-            </span>
-            <br />
-            <span className="font-inter-600 ">
               [Agreement to Use and Collection of Personal Information] <br />
             </span>
             <span className="font-inter-400 ">
-              MetaCross may collect and use your personal information for the
-              event.
+              Meta Magnet collects the following personal information to verify wallet addresses:
               <br />
-              1) Purpose: For event participation. <br />
-              2) Collected information: XPLA Vault wallet address
+              1) Purpose: Verification of assets in XPLA wallet<br />
+              2) Collected information: XPLA wallet address, Discord account
               <br />
-              3) Storage & Usage Period: Kept for 3 months after the event's
-              conclusion.
+              3) Storage & Usage Period: The personal information of users whose accounts have been deleted will be destroyed without delay.
               <br />
-              Refusal to provide consent for the collection and utilization of
-              personal information is possible; however, it must be noted that
-              such refusal will result in the inability to participate in the
-              event.
+              You may refuse to consent to the collection and use of personal information, but refusal will make wallet address verification impossible.
               <br />
             </span>
             <br />
@@ -65,16 +50,13 @@ const Modal = () => {
               <br />
             </span>
             <span className="font-inter-400 ">
-              MetaCross may transfer collected personal information globally to
-              provide a seamless event.
+              Meta Magnet may transfer collected personal information abroad for smooth service provision.
               <br />
               - Transfer Destination: Singapore <br />
-              - Transferred information: XPLA Vault wallet address
+              - Transferred information: XPLA wallet address, Discord account<br />
+              - Purpose: XPLA wallet address verification
               <br />
-              - Purpose: For event participation.
-              <br />
-              - Storage & Usage Period: Kept for 3 months after the event's
-              conclusion.
+              - Storage & Usage Period: The personal information of users whose accounts have been deleted will be destroyed without delay.
               <br />
             </span>
             <br />
@@ -83,39 +65,13 @@ const Modal = () => {
               [Caution] <br />
             </span>
             <span className="font-inter-400 ">
-              - This event is only open to participants aged 16 and above.
-              <br />
-              - Refusal to consent to the collection, use, and overseas transfer
-              of personal information may result in limitations on event
-              participation and reward distribution.
-              <br />
-              - Personal information of individuals under the age of 16 or users
-              who are not selected as winners will be immediately destroyed.{" "}
-              <br />
               - If you wish to withdraw your consent for the collected personal
               information, you may request access, correction, or deletion
               through the Personal Data Protection Department. However, in such
               cases, reward distribution may be canceled. <br />
-              {">"} Request to open/revise/discard your personal information
+              - Request to open/revise/discard your personal information
               (free of charge): Please contact XPLA Customer Support
-              (XPLA_CS@xpla.io).
-              <br />
-              - For more information, contact XPLA Customer Support:
-              XPLA_CS@xpla.io <br />
-              - To get rewards, you must submit your XPLA Vault Wallet address
-              correctly.
-              <br />
-              - When an event winner claims an event reward, a small amount of
-              $XPLA is required as a fee. <br />
-              - The event schedule is subject to change depending on the
-              situation. <br />
-              - Any changes will get announced through our official communities:
-              Twitter and Medium. <br />
-              - Participation is available once per account. <br />
-              - Restricted Country: China(PRC), Singapore, Japan, Korea, and the
-              United States. <br />
-              - If you abuse or overlap participation, you will be excluded from
-              the winner's list. <br />
+              (XPLA_CS@xpla.io).<br />
             </span>
             <br />
             <span className="font-inter-600 ">
@@ -123,20 +79,7 @@ const Modal = () => {
               <br />
             </span>
             <span className="font-inter-400 ">
-              This information neither constitutes nor is intended to be, an
-              offer or solicitation to buy, sell, subscribe to, underwrite, or
-              purchase any form of investment, securities, or other financial
-              instruments. It shall not serve as the foundation for, nor be
-              relied upon in any manner in association with, any contractual
-              arrangement, investment decision, or any other form of advice or
-              prospectus relating to XPLA. Individuals who access this
-              information or engage in XPLA transactions must conduct their own
-              due diligence and ensure compliance with all local laws regarding
-              cryptocurrency, tax, securities, and other regulations in their
-              own jurisdiction. All local laws must be complied with, and access
-              is prohibited in restricted areas, including, but not limited to
-              the United States, People’s Republic of China, Singapore, Japan,
-              and Korea.
+              - This information neither constitutes nor is intended to be, an offer or solicitation to buy, sell, subscribe to, underwrite, or purchase any form of investment, securities, or other financial instruments. It shall not serve as the foundation for, nor be relied upon in any manner in association with, any contractual arrangement, investment decision, or any other form of advice or prospectus relating to XPLA. Individuals who access this information or engage in XPLA transactions must conduct their own due diligence and ensure compliance with all local laws regarding cryptocurrency, tax, securities, and other regulations in their own jurisdiction.
             </span>
           </div>
         </div>
@@ -172,7 +115,7 @@ const Modal = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://assets.xpla.io/pdf/PRIVACY_POLICY.pdf"
+              href="/privacy-policy"
               className="underline"
             >
               Privacy Policy

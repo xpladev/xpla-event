@@ -16,7 +16,7 @@ const Cookie = () => {
             <div className="w-full max-w-[1920px] pl-[40px] pt-[30px] pb-[200px] pr-[35px] flex flex-col justify-start items-center">
                 <div className="mb-[30px] w-full max-w-[1290px] flex justify-start items-start relative">
                     <PolicySidebar />
-                    <LanguageSelect classname="" />
+                    {/* <LanguageSelect classname="" /> */}
                 </div>
                 <Content
                     title="Cookie Policy"
