@@ -36,7 +36,7 @@ const Modal = () => {
             <span className="font-inter-400 ">
               Meta Magnet collects the following personal information to verify wallet addresses:
               <br />
-              1) Purpose: Role assignment in Discord based on the verification of XPLA wallet addresses.<br />
+              1) Purpose: Verification of assets in XPLA wallet<br />
               2) Collected information: XPLA wallet address, Discord account
               <br />
               3) Storage & Usage Period: The personal information of users whose accounts have been deleted will be destroyed without delay.
@@ -115,7 +115,7 @@ const Modal = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://assets.xpla.io/pdf/PRIVACY_POLICY.pdf"
+              href="/privacy-policy"
               className="underline"
             >
               Privacy Policy
