@@ -20,7 +20,7 @@ module.exports = function override(config, env) {
 
   const isEnvDevelopment = env === 'development';
   const isEnvProduction = env !== 'development';
-  const loaders = config.module.rules[1].oneOf;
+  const loaders = config.module.rules.find((rule) => rule.oneOf).oneOf;
   loaders.splice(loaders.length - 1, 0, {
     test: /\.(js|mjs|cjs)$/,
     exclude: /@babel(?:\/|\\{1,2})runtime/,
