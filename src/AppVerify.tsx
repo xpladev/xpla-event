@@ -16,14 +16,13 @@ function AppVerify() {
   const connectedWallet = useConnectedWallet();
   const [buttonText, setButtonText] = useState<string>("Sign Message");
   const [error, setError] = useState<string | undefined>();
-
   useEffect(() => {
     if (status === WalletStatus.WALLET_CONNECTED && wallets.length > 0) {
       setInterval(() => {
         refetchStates()
       }, 50 * 1000)
     }
-  }, [status]);
+  }, [status, refetchStates, wallets]);
 
   const [searchParams] = useSearchParams();
   const queryParam = searchParams.get("discord");
@@ -77,7 +76,7 @@ function AppVerify() {
                     const startTime = new Date(timestamp);
                     const now = new Date();
                     const diffMin = (now.getTime() - startTime.getTime()) / (60 * 1000);
-
+                    
                     if (diffMin > 5) {
                       setError("Time over!")
                       throw new Error("Time Over!");
@@ -103,7 +102,6 @@ function AppVerify() {
                     }
 
                   } catch (e) {
-                    // console.log(e);
                     if (e instanceof Error) {
                       // 에러 객체에서 메시지를 출력
                       setError(e.message);

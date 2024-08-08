@@ -17,10 +17,10 @@
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@xpla.kitchen/utils": "^0.2.2",
-    "@xpla/wallet-provider": "^1.0.0",
+    "@xpla/wallet-provider": "^1.5.2",
     "@xpla/xpla.js": "^1.0.0",
     "assert": "^2.1.0",
-    "axios": "^1.6.8",
+    "axios": "^0.27.2",
     "bech32": "^2.0.0",
     "bignumber.js": "^9.1.2",
     "buffer": "^6.0.3",
@@ -74,6 +74,7 @@
     "cross-env": "^7.0.3",
     "postcss": "^8.4.32",
     "react-app-rewired": "^2.2.1",
-    "tailwindcss": "^3.3.6"
+    "tailwindcss": "^3.3.6",
+    "webpack": "^5.93.0"
   }
 }
