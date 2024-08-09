@@ -75,12 +75,12 @@ export default function Connect() {
                 icon: "https://assets.xpla.io/icon/extension/icon.png",
                 identifier: undefined,
               } as Connection,
-              {
-                type: "WALLETCONNECT",
-                name: "XPLA GAMES Wallet",
-                icon: "https://xpla.events/img/xplagames.svg",
-                identifier: "xplagames",
-              } as Connection,
+              // {
+              //   type: "WALLETCONNECT",
+              //   name: "XPLA GAMES Wallet",
+              //   icon: "https://xpla.events/img/xplagames.svg",
+              //   identifier: "xplagames",
+              // } as Connection,
             ]
       );
 

@@ -1,6 +1,6 @@
-import { Modal as MuiModal } from "@mui/material";
+import { Modal as MuiModal, useMediaQuery } from "@mui/material";
 import useModalVerify from "../../zustand/useModalVerifyOpen";
-import { useConnectedWallet, useWallet, WalletStatus } from "@xpla/wallet-provider";
+import { useConnectedWallet, useWallet, WalletApp, WalletStatus } from "@xpla/wallet-provider";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 
@@ -10,6 +10,7 @@ const ModalVerify = ({ setError, setButtonText }: { setError: React.Dispatch<Rea
   const connectedWallet = useConnectedWallet();
   const [searchParams] = useSearchParams();
   const queryParam = searchParams.get("discord");
+  const isMobile = useMediaQuery("(max-width:768px)");
 
   if (!queryParam) {
     return <></>;
@@ -56,7 +57,7 @@ const ModalVerify = ({ setError, setButtonText }: { setError: React.Dispatch<Rea
                   }
 
                   const signMessages = `XPLA_Bot asks you to sign this message for the purpose of verifying your account ownership. This is READ-ONLY access and will NOT trigger any blockchain transactions or incur any fees.\n\n- User : ${userId}\n- Timestamp : ${timestamp}`;
-                  const result = await connectedWallet.signBytes(Buffer.from(signMessages));
+                  const result = await connectedWallet.signBytes(Buffer.from(signMessages),  isMobile ? WalletApp.XPLA_VAULT : undefined);
 
                   const a = await axios.post(`${process.env.REACT_APP_ENV === "development" ? "http://localhost:5641" : "https://dimension-discord.xpla.dev"}/signresult`, {
                     signbytes: result,
