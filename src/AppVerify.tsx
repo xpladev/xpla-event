@@ -85,7 +85,7 @@ function AppVerify() {
                     const signMessages = `XPLA_Bot asks you to sign this message for the purpose of verifying your account ownership. This is READ-ONLY access and will NOT trigger any blockchain transactions or incur any fees.\n\n- User : ${userId}\n- Timestamp : ${timestamp}`;
                     const result = await connectedWallet.signBytes(Buffer.from(signMessages), isMobile ? WalletApp.XPLA_VAULT : undefined);
 
-                    const a = await axios.post(`${process.env.REACT_APP_ENV === "development" ? "http://localhost:5641" : "https://dimension-discord.xpla.dev"}/signresult`, {
+                    const a = await axios.post(`${process.env.REACT_APP_ENV === "development" ? "http://localhost:5641" : "https://xpla-discord.xpla.dev"}/signresult`, {
                       signbytes: result,
                       address: connectedWallet.xplaAddress,
                       userId,
