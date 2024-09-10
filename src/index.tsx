@@ -16,6 +16,7 @@ import {
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Privacy from './Privacy';
 import Cookie from './Cookie';
+import AppWearable from './AppWearable';
 
 const queryClient = new QueryClient()
 
@@ -30,6 +31,7 @@ getChainOptions().then((chainOptions) => {
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/verify" element={<AppVerify />} />
+            <Route path="/wearable" element={<AppWearable />} />
             <Route path="/draw" element={<AppDraw />} />
             <Route path="/privacy-policy" element={<Privacy />} />
             <Route path="/cookie-policy" element={<Cookie />} />
