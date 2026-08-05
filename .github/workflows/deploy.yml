@@ -1,0 +1,57 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# peaceiris/actions-gh-pages pushes the build output to the gh-pages branch,
+# which GitHub Pages then serves (Pages source: gh-pages branch, / root).
+permissions:
+  contents: write
+
+# Never let two deploys race for the gh-pages branch.
+concurrency:
+  group: deploy-gh-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # `npm ci` runs the patch-package postinstall against patches/.
+      - name: Install dependencies
+        run: npm ci
+
+      # The `build` script prefixes `set "GENERATE_SOURCEMAP=false"`, which is
+      # Windows syntax and is a no-op on Linux, so set it here instead.
+      # REACT_APP_ENV is intentionally left unset — that is what the existing
+      # `npm run build` produces, and only `npm run dev` sets it.
+      - name: Build
+        run: npm run build
+        env:
+          GENERATE_SOURCEMAP: "false"
+          CI: "false" # CRA treats warnings as errors when CI=true
+
+      # public/CNAME (xpla.events) is copied into build/ by CRA, so the custom
+      # domain survives each deploy without an extra step.
+      - name: Verify build output
+        run: |
+          test -f build/index.html
+          test "$(cat build/CNAME)" = "xpla.events"
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages
